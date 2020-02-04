@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 
 {% block breadcrumb %}
-  <li class="breadcrumb-item active">Boards</li>
+  <li class="breadcrumb-item active">Main</li>
 {% endblock %}
 
 {% block content %}
   <table class="table">
     <thead class="thead-inverse">
       <tr>
-        <th>Board</th>
-        <th>Posts</th>
-        <th>Topics</th>
-        <th>Last Post</th>
+        <th>Opcion 1</th>
+        <th>Opcion 2</th>
+        <th>Opcion 3</th>
+        <th>Opcion 4</th>
       </tr>
     </thead>
     <tbody>
-      {% for board in boards %}
+<!--       {% for board in boards %}
         <tr>
           <td>
             <a href="{% url 'board_topics' board.pk %}">{{ board.name }}</a>
@@ -25,7 +25,7 @@
           <td class="align-middle">0</td>
           <td></td>
         </tr>
-      {% endfor %}
+      {% endfor %} -->
     </tbody>
   </table>
 {% endblock %}
