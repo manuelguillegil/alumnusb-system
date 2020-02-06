@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit User Data {% endblock %}
+
+{% block stylesheet %}{% endblock %}
+
+{% block body %}
+
+  {% block breadcrumb %}
+    
+  {% endblock %}
+
+  {% block content %}
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-success">Save</button>
+    </form>
+  {% endblock %}
+
+{% endblock body %}
