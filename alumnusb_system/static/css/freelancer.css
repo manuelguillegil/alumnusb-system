@@ -2654,6 +2654,17 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
 }
 
+.btn-outline-al {
+  color: #000000;
+  border-color: #000000;
+}
+
+.btn-outline-al:hover {
+  color: #212529;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
 .btn-outline-warning {
   color: #ffc107;
   border-color: #ffc107;
@@ -5380,6 +5391,7 @@ a.badge-dark:focus, a.badge-dark.focus {
   text-shadow: 0 1px 0 #fff;
   opacity: .5;
 }
+
 
 .close:hover {
   color: #000;
@@ -9613,6 +9625,14 @@ a.text-dark:hover, a.text-dark:focus {
   background-color: #fff;
 }
 
+.divider-custom.divider-dark .divider-custom-line {
+  background-color: rgb(0, 0, 0);
+}
+
+.divider-custom.divider-dark .divider-custom-icon {
+  color: rgb(0, 0, 0) !important;
+}
+
 .divider-custom.divider-light .divider-custom-icon {
   color: #fff !important;
 }
@@ -9715,6 +9735,17 @@ a.text-dark:hover, a.text-dark:focus {
 .masthead {
   padding-top: calc(6rem + 74px);
   padding-bottom: 6rem;
+}
+
+.mastheadaux {
+  padding-top: calc(6rem + 74px);
+  padding-bottom: 6rem;
+}
+
+.masthead-register {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  border: 5px solid;
 }
 
 .masthead .masthead-heading {
