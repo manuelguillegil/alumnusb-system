@@ -21,7 +21,7 @@
     </div>
 
     <!-- Masthead Subheading -->
-    <p class="masthead-subheading font-weight-light mb-0">Queremos recompensar lo mucho que haces por nosotros.</p>
+    <h4 class="masthead-subheading font-weight-light mb-0">Queremos recompensar lo mucho que haces por nosotros.</h4>
 
   </div>
 </header>
@@ -179,7 +179,15 @@
     <div class="row">
       <div class="col-lg-8 mx-auto">
         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+        <form name="sentMessage" id="contactForm" novalidate="novalidate" method="POST">
+          {% csrf_token %}
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>Username</label>
+              <input class="form-control" id="username" type="email" placeholder="Username" required="required" data-validation-required-message="Please enter your email address.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label>Email Address</label>
@@ -190,7 +198,14 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label>Password</label>
-              <input class="form-control" id="phone" type="tel" placeholder="Password" required="required" data-validation-required-message="Please enter your phone number.">
+              <input class="form-control" id="pass" type="tel" placeholder="Password" required="required" data-validation-required-message="Please enter your password number.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>Re Password</label>
+              <input class="form-control" id="repass" type="tel" placeholder="Re Password" required="required" data-validation-required-message="Please enter your password number.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -207,40 +222,40 @@
 </section>
 
 <!-- Footer -->
-<footer class="footer text-center">
+<footer class="footer text-center bg-third">
   <div class="container">
     <div class="row">
 
       <!-- Footer Location -->
       <div class="col-lg-4 mb-5 mb-lg-0">
-        <h4 class="text-uppercase mb-4">Ubicación</h4>
-        <p class="lead mb-0">Massachusetts, USA</p>
+        <h4 class="text-uppercase mb-4 text-black">Ubicación</h4>
+        <p class="lead mb-0 text-black">Massachusetts, USA</p>
       </div>
 
       <!-- Footer Social Icons -->
       <div class="col-lg-4 mb-5 mb-lg-0">
-        <h4 class="text-uppercase mb-4">Contacto</h4>
-        <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/alumn_usb/">
+        <h4 class="text-uppercase mb-4 text-black">Contacto</h4>
+        <a class="btn btn-outline-dark btn-social mx-1" href="https://www.instagram.com/alumn_usb/">
           <i class="fab fa-fw fa-instagram"></i>
         </a>
-        <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/alumn_usb/">
+        <a class="btn btn-outline-dark btn-social mx-1" href="https://twitter.com/alumn_usb/">
           <i class="fab fa-fw fa-twitter"></i>
         </a>
-        <a class="btn btn-outline-light btn-social mx-1" href="https://facebook.com/alumnusb/">
+        <a class="btn btn-outline-dark btn-social mx-1" href="https://facebook.com/alumnusb/">
           <i class="fab fa-fw fa-facebook-f"></i>
         </a>
-        <a class="btn btn-outline-light btn-social mx-1" href="https://www.youtube.com/c/alumnusb/">
+        <a class="btn btn-outline-dark btn-social mx-1" href="https://www.youtube.com/c/alumnusb/">
           <i class="fab fa-fw fa-youtube"></i>
         </a>
-        <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/company/alumnusb/">
+        <a class="btn btn-outline-dark btn-social mx-1" href="https://www.linkedin.com/company/alumnusb/">
           <i class="fab fa-fw fa-linkedin-in"></i>
         </a>
       </div>
 
       <!-- Footer About Text -->
       <div class="col-lg-4">
-        <h4 class="text-uppercase mb-4">Info</h4>
-        <p class="lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by
+        <h4 class="text-uppercase mb-4 text-black">Info</h4>
+        <p class="lead mb-0 text-black">Freelance is a free to use, MIT licensed Bootstrap theme created by
           <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
       </div>
 
@@ -249,7 +264,7 @@
 </footer>
 
 <!-- Copyright Section -->
-<section class="copyright py-4 text-center text-white">
+<section class="copyright py-4 text-center text-white bg-black">
   <div class="container">
     <small>Copyright &copy; Alumnification 2020</small>
   </div>

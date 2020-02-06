@@ -2654,6 +2654,17 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
 }
 
+.btn-outline-al {
+  color: #000000;
+  border-color: #000000;
+}
+
+.btn-outline-al:hover {
+  color: #212529;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
 .btn-outline-warning {
   color: #ffc107;
   border-color: #ffc107;
@@ -2751,14 +2762,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-dark {
-  color: #343a40;
-  border-color: #343a40;
+  color: #090a0a;
+  border-color: #090a0a;
 }
 
 .btn-outline-dark:hover {
   color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
+  background-color: #090a0a;
+  border-color: #090a0a;
 }
 
 .btn-outline-dark:focus, .btn-outline-dark.focus {
@@ -5381,6 +5392,7 @@ a.badge-dark:focus, a.badge-dark.focus {
   opacity: .5;
 }
 
+
 .close:hover {
   color: #000;
   text-decoration: none;
@@ -6205,7 +6217,15 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #1abc9c !important;
+  background-color: #ff9900 !important;
+}
+
+.bg-third {
+  background-color: #eded10 !important;
+}
+
+.bg-black {
+  background-color: black !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -9363,6 +9383,10 @@ button.bg-dark:focus {
   color: #fff !important;
 }
 
+.text-black {
+  color: rgb(0, 0, 0) !important;
+}
+
 .text-primary {
   color: #1abc9c !important;
 }
@@ -9372,7 +9396,7 @@ a.text-primary:hover, a.text-primary:focus {
 }
 
 .text-secondary {
-  color: #2c3e50 !important;
+  color: #ff9900 !important;
 }
 
 a.text-secondary:hover, a.text-secondary:focus {
@@ -9579,9 +9603,9 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100%;
   max-width: 7rem;
   height: 0.25rem;
-  background-color: #2c3e50;
+  background-color: #ff9900;
   border-radius: 1rem;
-  border-color: #2c3e50 !important;
+  border-color: #ff9900 !important;
 }
 
 .divider-custom .divider-custom-line:first-child {
@@ -9593,12 +9617,20 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .divider-custom .divider-custom-icon {
-  color: #2c3e50 !important;
+  color: #ff9900 !important;
   font-size: 2rem;
 }
 
 .divider-custom.divider-light .divider-custom-line {
   background-color: #fff;
+}
+
+.divider-custom.divider-dark .divider-custom-line {
+  background-color: rgb(0, 0, 0);
+}
+
+.divider-custom.divider-dark .divider-custom-icon {
+  color: rgb(0, 0, 0) !important;
 }
 
 .divider-custom.divider-light .divider-custom-icon {
@@ -9703,6 +9735,17 @@ a.text-dark:hover, a.text-dark:focus {
 .masthead {
   padding-top: calc(6rem + 74px);
   padding-bottom: 6rem;
+}
+
+.mastheadaux {
+  padding-top: calc(6rem + 74px);
+  padding-bottom: 6rem;
+}
+
+.masthead-register {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  border: 5px solid;
 }
 
 .masthead .masthead-heading {
