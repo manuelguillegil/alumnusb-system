@@ -3,11 +3,11 @@
 {% block title %} Register User {% endblock %}
 
 {% block content %}
-  <header class="masthead-register bg-primary">
-    <div class="container d-flex align-items-center flex-column">
+
+    <div class="container masthead bg-primary text-white text-center">
     
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0">AlumnUSB</h1>
+      <h1 class="masthead-heading text-uppercase text-black mb-0">Create new account</h1>
     
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
@@ -17,31 +17,27 @@
         </div>
         <div class="divider-custom-line"></div>
       </div>
-    
+
+      <div class="container d-flex align-items-center flex-column">
+        <form method = "POST">
+          {% csrf_token %}
+          {% for field in form %}
+            <div class="fieldWrapper">
+              <strong class="navbar-brand text-black">
+                {{ field.errors }}
+                {{ field.label_tag }} 
+              </strong>
+              <br>
+              {{ field }}
+              {% if field.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+          <br>
+          <button class="btn btn-outline-al btn-xl">Register</button>
+        </form>
+      </div>
     </div>
 
-    <div class="container d-flex align-items-center flex-column masthead-heading">
-      <h1 class="masthead-heading text-uppercase mb-0">Create new account</h1>
-      <br>
-      <br>
-
-      <form method = "POST">
-        {% csrf_token %}
-        {% for field in form %}
-          <div class="fieldWrapper">
-            <strong class="navbar-brand text-black">
-              {{ field.errors }}
-              {{ field.label_tag }} 
-            </strong>
-            <br>
-            {{ field }}
-            {% if field.help_text %}
-            <p class="help">{{ field.help_text|safe }}</p>
-            {% endif %}
-          </div>
-        {% endfor %}
-        <button class="btn btn-outline-al btn-xl">Register</button>
-      </form>
-    </div>
-  </header>
 {% endblock content %}
