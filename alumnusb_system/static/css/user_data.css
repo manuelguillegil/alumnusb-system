@@ -95,5 +95,8 @@ body{
 }
 
 #edit-profile{
-    color:#f13800;
+    color:#fffea8;
+    background-color: #f18900;
+    padding: 1rem;
+    border: #f13800 solid 0px;
 }
