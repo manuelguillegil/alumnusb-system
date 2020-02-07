@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
 
 from .models import User_information
-from .forms import SignUpForm, EditUserDataForm
+from .forms import SignUpForm, EditUserDataForm, getUserDataForm
 
 # Quitar esta view luego
 def signup(request):
@@ -43,6 +43,25 @@ def edit_user_data(request, username):
 
     if request.user.username != username:
         return redirect('home')
+    
+    usr = get_object_or_404(User, username=username);
+    user_info = get_object_or_404(User_information,  Email=usr.email);
+
+    if request.method == 'POST':
+        form = EditUserDataForm(request.POST, instance=user_info)
+        if form.is_valid():
+            form.save()
+            return redirect('Datos Personales')  
+    else:
+        form = EditUserDataForm(instance=user_info)
+
+    return render(request, 'edit_user_data.html', {'User_information': user_info, 'form': form})
+#Esta es una función de prueba para la pág de edit_user_data
+@login_required
+def edit_user_data_test(request, username):
+
+    if request.user.username != username:
+        return redirect('home')
     """ xd """
     usr = get_object_or_404(User, username=username);
     user_info = get_object_or_404(User_information,  Email=usr.email);
@@ -54,24 +73,25 @@ def edit_user_data(request, username):
             return redirect('Datos Personales')  
     else:
         form = EditUserDataForm(instance=user_info)
-    return render(request, 'edit_user_data.html', {'User_information': user_info, 'form': form})
+    return render(request, 'user_data.html', {'User_information': user_info, 'form': form})
 
-"""
+
+
 @login_required
 def get_user_data(request, username):
 
     if request.user.username != username:
         return redirect('home')
     
-    #usr = get_object_or_404(User, username=username);
-    #user_info = get_object_or_404(User_information,  Email=usr.email);
-
     if request.method == 'POST':
-        form = getUserDataForm(request.POST)#, #instance=user_info)
+        form = getUserDataForm(request.POST)
         if form.is_valid():
-            form.save()
+            usr_info = form.save()
+            usr_info.Email = request.user.email
+            usr_info.save()
             return redirect('Datos Personales')  
     else:
-        form = getUserDataForm()#instance=user_info)
-    return render(request, 'edit_user_data.html', {'User_information': user_info, 'form': form})
-    """
+        form = getUserDataForm()
+
+    return render(request, 'get_user_data.html', {'form': form})
+    

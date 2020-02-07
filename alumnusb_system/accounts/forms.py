@@ -42,3 +42,37 @@ class EditUserDataForm(forms.ModelForm):#UserChangeForm):
             'Twitter_account',
             'Instagram_account'
         )
+
+
+class getUserDataForm(forms.ModelForm):#UserChangeForm):
+    """docstring for EditUserData"""
+    #message = forms.CharField(widget=forms.Textarea(), max_length=4000)
+
+    class Meta:
+        model = User_information
+        fields = (
+            'First_name',
+            'Middle_name',
+            'Last_name',
+            'Mailing_city',
+            'Mailing_state',
+            'USB_alumn',
+            #'Codigo_Alumn_USB',
+            'Mailing_country',
+            #'Email',
+            'Mobile',
+            'Cohorte',
+            'Birthdate',
+            'Age',
+            'Undergrad_degree',
+            'Graduate_degree',
+            'Carnet',
+            'USB_undergrad_campus',
+            'Graduate_campus',
+            'Work_email',
+            'Workplace',
+            'Donor',
+            'Social_networks',
+            'Twitter_account',
+            'Instagram_account'
+        )
