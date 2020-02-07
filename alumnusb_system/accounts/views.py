@@ -44,8 +44,8 @@ def edit_user_data(request, username):
     if request.user.username != username:
         return redirect('home')
     
-    usr = get_object_or_404(User, username=username);
-    user_info = get_object_or_404(User_information,  Email=usr.email);
+    usr = get_object_or_404(User, username=username)
+    user_info = get_object_or_404(User_information,  Email=usr.email)
 
     if request.method == 'POST':
         form = EditUserDataForm(request.POST, instance=user_info)
@@ -63,8 +63,8 @@ def edit_user_data_test(request, username):
     if request.user.username != username:
         return redirect('home')
     """ xd """
-    usr = get_object_or_404(User, username=username);
-    user_info = get_object_or_404(User_information,  Email=usr.email);
+    usr = get_object_or_404(User, username=username)
+    user_info = get_object_or_404(User_information,  Email=usr.email)
 
     if request.method == 'POST':
         form = EditUserDataForm(request.POST, instance=user_info)

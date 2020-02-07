@@ -6,21 +6,22 @@
     <meta charset="utf-8">
     <title>{% block title %}AlumnUSB{% endblock %}</title>
     <link href="https://fonts.googleapis.com/css?family=Peralta" rel="stylesheet">
-    <link rel="icon" href="../static/img/alumnusb_logo.jpg">
-    <link rel="stylesheet" href="{% static '../static/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static '../static/css/app.css' %}">
+    <link rel="icon" href="/static/img/alumnusb_logo.jpg">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
 
     <!-- Custom fonts for this theme -->
-    <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- Theme landing page -->
-    <link rel="stylesheet" href="{% static '../static/css/freelancer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/freelancer.css' %}">
     {% block stylesheet %}{% endblock %}
   </head>
+  
   <body id="page-top">
-    <div style="height:50px;"></div>
+    <!--<div style="height:50px;"></div>-->
     
     {% block body %}
       <!-- Navigation -->
@@ -73,14 +74,64 @@
         </div>
       </nav>
 
-      <div class="container">
-        <ol class="breadcrumb my-4">
-          {% block breadcrumb %}
-          {% endblock %}
-        </ol>
-        {% block content %}
-        {% endblock %}
-      </div>
+      {% block content %}
+      {% endblock %}
+
+    <!-- Footer -->
+
+    {% block footer %}
+      <footer class="footer text-center" style = "width: 100%;">
+        <div class="container">
+          <div class="row">
+
+            <!-- Footer Location -->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+              <h4 class="text-uppercase mb-4 text-black">Ubicación</h4>
+              <p class="lead mb-0 text-black">Massachusetts, USA</p>
+            </div>
+
+            <!-- Footer Social Icons -->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+              <h4 class="text-uppercase mb-4 text-black">Contacto</h4>
+              <a class="btn btn-outline-dark btn-social mx-1" href="https://www.instagram.com/alumn_usb/">
+                <i class="fab fa-fw fa-instagram"></i>
+              </a>
+              <a class="btn btn-outline-dark btn-social mx-1" href="https://twitter.com/alumn_usb/">
+                <i class="fab fa-fw fa-twitter"></i>
+              </a>
+              <a class="btn btn-outline-dark btn-social mx-1" href="https://facebook.com/alumnusb/">
+                <i class="fab fa-fw fa-facebook-f"></i>
+              </a>
+              <a class="btn btn-outline-dark btn-social mx-1" href="https://www.youtube.com/c/alumnusb/">
+                <i class="fab fa-fw fa-youtube"></i>
+              </a>
+              <a class="btn btn-outline-dark btn-social mx-1" href="https://www.linkedin.com/company/alumnusb/">
+                <i class="fab fa-fw fa-linkedin-in"></i>
+              </a>
+            </div>
+
+            <!-- Footer About Text -->
+            <div class="col-lg-4">
+              <h4 class="text-uppercase mb-4 text-black">Info</h4>
+              <p class="lead mb-0 text-black">Freelance is a free to use, MIT licensed Bootstrap theme created by
+                <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+            </div>
+
+          </div>
+        </div>
+      </footer>
+    {% endblock footer %}
+    
+    <!-- Copyright Section -->
+    
+    {% block copyright %}
+      <section class="copyright py-4 text-center text-white bg-black">
+        <div class="container">
+          <small>Copyright &copy; Alumnification 2020</small>
+        </div>
+      </section>
+    {% endblock copyright %}
+    
     {% endblock body %}
     <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>

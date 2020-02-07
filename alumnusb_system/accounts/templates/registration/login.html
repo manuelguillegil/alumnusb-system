@@ -1,52 +1,50 @@
 {% extends 'base.html' %}
 
+{% block title %} Login User {% endblock %}
 
 {% block content %}
-
-<header class="masthead-register bg-primary">
-  <div class="container d-flex align-items-center flex-column">
-  
-    <!-- Masthead Avatar Image -->
-  
-    <!-- Masthead Heading -->
-    <h1 class="masthead-heading text-uppercase text-black mb-0">AlumnUSB</h1>
-  
-    <!-- Icon Divider -->
-    <div class="divider-custom divider-light">
-      <div class="divider-custom-line"></div>
-      <div class="divider-custom-icon">
-        <i class="fas fa-star"></i>
+  <header class="masthead-register bg-primary">
+    <div class="container d-flex align-items-center flex-column">
+    
+      <!-- Masthead Heading -->
+      <h1 class="masthead-heading text-uppercase text-black mb-0">AlumnUSB</h1>
+    
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
       </div>
-      <div class="divider-custom-line"></div>
+    
     </div>
-  
-  </div>
 
-  <div class="container d-flex align-items-center flex-column masthead-heading">
-    <h1 class="masthead-heading text-uppercase text-black mb-0">Login</h1>
-    <br>
-    <br>
-
-    <form method = "POST">
-      {% csrf_token %}
-      {% for field in form %}
-      <div class="fieldWrapper">
-        <strong class="navbar-brand text-black">
-          {{ field.errors }}
-          {{ field.label_tag }} 
-        </strong>
-          <br>
-          {{ field }}
-          {% if field.help_text %}
-          <p class="help">{{ field.help_text|safe }}</p>
-          {% endif %}
-      </div>
-      {% endfor %}
+    <div class="container d-flex align-items-center flex-column masthead-heading">
+      <h1 class="masthead-heading text-uppercase text-black mb-0">Login</h1>
       <br>
-      <div>
-        <button class="btn btn-outline-al btn-xl">Log</button>
-      </div>
-    </form>
-  </div>
-</header>
-{% endblock %}
+      <br>
+
+      <form method = "POST">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="fieldWrapper">
+            <strong class="navbar-brand text-black">
+              {{ field.errors }}
+              {{ field.label_tag }} 
+            </strong>
+            <br>
+            {{ field }}
+            {% if field.help_text %}
+            <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+        <br>
+        <div>
+          <button class="btn btn-outline-al btn-xl">Log</button>
+        </div>
+      </form>
+    </div>
+  </header>
+{% endblock content %}

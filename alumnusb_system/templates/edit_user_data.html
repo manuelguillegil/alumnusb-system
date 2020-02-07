@@ -1,41 +1,40 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block title %} Edit User Data {% endblock %}
 
-
-
-{% block breadcrumb %}
-
-{% endblock %}
-
-<!DOCTYPE html>
-<html lang="en">
-  
-  <head>
-    {% block stylesheet %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    {% endblock %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+{% block content %}
+  <div class="container masthead bg-primary text-white text-center">
+    <h1 class="masthead-heading text-uppercase text-black mb-0">Edit user info</h1>
     
-  </head>
-  
-  {% block content %}
-  {% block body %}
-  <body>
+    <!-- Icon Divider -->
+    <div class="divider-custom divider-light">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon">
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="divider-custom-line"></div>
+    </div>
 
     <form method="post">
 
       {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit" class="btn btn-success">Save</button>
+      {% for field in form %}
+        <div class="fieldWrapper">
+          <strong class="navbar-brand text-uppercase text-black">
+            {{ field.errors }}
+            {{ field.label_tag }} 
+          </strong>
+
+          {{ field }}
+          {% if field.help_text %}
+          <p class="help">{{ field.help_text|safe }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <br>
+      <button type="submit" class="btn btn-primary btn-xl">Save</button>
 
     </form>
-  
-  </body>
-  {% endblock body %}
-  </html>
-  {% endblock content%}
+  </div>
+
+{% endblock content%}
