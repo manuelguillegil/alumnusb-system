@@ -2255,15 +2255,15 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: rgb(246, 255, 121);
-  border-color: rgb(246, 255, 121);
+  color: #eded10;
+  background-color: rgb(0, 0, 0);
+  border-color: #eded10;
 }
 
 .btn-primary:hover {
-  color: #fff;
-  background-color: #159a80;
-  border-color: #148f77;
+  color: rgb(0, 0, 0);
+  background-color: #eded10;
+  border-color: #000000;
 }
 
 .btn-primary:focus, .btn-primary.focus {
