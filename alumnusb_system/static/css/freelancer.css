@@ -9780,11 +9780,7 @@ a.text-dark:hover, a.text-dark:focus {
   border-radius: 100%;
 }
 
-.achievement-item {
-  width: 30%;
-  height: 30%;
-  padding: 10px;
-}
+
 
 @media (min-width: 992px) {
   .masthead {
