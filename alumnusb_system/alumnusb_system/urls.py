@@ -25,7 +25,11 @@ urlpatterns = [
     url(r'^$', views.index, name='home'),
     url(r'^personal_data/$', views.user_data, name = 'Datos Personales'),
     url(r'^personal_data/edit/(?P<username>[\w.@+-]+)/$', accounts_views.edit_user_data, name = 'Edit User Data'),
+
     url(r'^personal_data/get/(?P<username>[\w.@+-]+)/$', accounts_views.get_user_data, name = 'Get User Data'),
+
+    url(r'^personal_data/edit_test/(?P<username>[\w.@+-]+)/$', accounts_views.edit_user_data_test, name = 'Edit User Data'), #esta es de prueba, se quita
+
     url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
