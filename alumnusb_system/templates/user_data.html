@@ -9,7 +9,7 @@
 
 <!------ Include the above in your HEAD tag ---------->
 {% block content %}
-<div class="container emp-profile">
+<div class="container emp-profile horizontal-align">
             <form method="post">
                 <div class="row">
                     <div class="col-md-4">
@@ -24,12 +24,20 @@
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        Kshiti Ghelani
+                                        {{ User_information.First_name}}  
+                                        {{ User_information.Middle_name }}
+                                        {{ User_information.Last_name}} 
+                                        
                                     </h5>
                                     <h6>
-                                        Web Developer and Designer
+                                        {{ User_information.Undergrad_degree }}
                                     </h6>
-                                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                                    {% if User_information.Donor == 1 %}
+                                    <p class="proile-rating">Donor &#127775; </p>
+                                    {% endif %}
+                                    {% if User_information.USB_alumn == 1%}
+                                    <p> USB Alumn &#127775; </p>
+                                    {% endif%}
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -41,22 +49,27 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                        <input type="submit" class="btn-primary" value="Edit Profile"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-work">
-                            <p>WORK LINK</p>
-                            <a href="">Website Link</a><br/>
-                            <a href="">Bootsnipp Profile</a><br/>
-                            <a href="">Bootply Profile</a>
-                            <p>SKILLS</p>
-                            <a href="">Web Designer</a><br/>
-                            <a href="">Web Developer</a><br/>
-                            <a href="">WordPress</a><br/>
-                            <a href="">WooCommerce</a><br/>
-                            <a href="">PHP, .Net</a><br/>
+                            <strong>SOCIAL MEDIA:</strong>
+                            <ul>
+                                <li>Twitter: {{User_information.Twitter_account}} </li>
+                                <li>Instagram: {{User_information.Instagram_account}} </li>
+                            </ul>
+                            
+                            <strong>CONTACT INFO:</strong>
+                            <ul>
+                                <li>Mailing city: {{ User_information.Mailing_city}}</li>
+                                <li>Mailing state: {{ User_information.Mailing_state}}</li>
+                                <li>Mobile number: {{ User_information.Mobile }}</li>
+                                <li>Work Email: {{User_information.Work_email}} </li>
+                                <li>Email: {{User_information.Email}} </li>
+                                
+                            </ul>
                         </div>
                     </div>
                     <div class="col-md-8">
@@ -64,42 +77,67 @@
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>User Id</label>
+                                                <label><strong> Cohorte: </strong></label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti123</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Name</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Kshiti Ghelani</p>
+                                                <p>{{User_information.Cohorte}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Email</label>
+                                                <label><strong> Birth date: </strong></label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Phone</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>123 456 7890</p>
+                                                <p> {{User_information.Birthdate}} </p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Profession</label>
+                                                <label><strong> Graduate Degree: </strong></label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Web Developer and Designer</p>
+                                                <p> {{User_information.Graduate_degree}} </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><strong> Carnet: </strong></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{User_information.Carnet}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label> <strong>Undergraduate Campus: </strong> </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p> {{User_information.USB_undergrad_campus}} </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label> <strong> Graduate Campus: </strong> </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p> {{User_information.Graduate_campus}} </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label> <strong> Graduate Campus: </strong> </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p> {{User_information.Graduate_campus}} </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label> <strong> Workplace: </strong> </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p> {{User_information.Workplace}} </p>
                                             </div>
                                         </div>
                             </div>

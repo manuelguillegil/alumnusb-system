@@ -9,7 +9,7 @@ class alumncsv(models.Model):
 	Mailing_city = models.CharField(max_length=20)
 	Mailing_state = models.CharField(max_length=20)
 	USB_alumn = models.IntegerField()
-	Codigo_Alumn_USB = models.CharField(max_length=20)
+	Codigo_Alumn_USB = models.CharField(max_length=20) #pendiente
 	Mailing_country = models.CharField(max_length=20)
 	Email = models.EmailField(max_length=40, unique=True)
 	Mobile = models.CharField(max_length=20)
