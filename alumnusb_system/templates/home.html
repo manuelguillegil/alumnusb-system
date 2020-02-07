@@ -6,7 +6,7 @@
   <div class="container d-flex align-items-center flex-column">
 
     <!-- Masthead Avatar Image -->
-    <img class="masthead-avatar mb-5 rounded-circle" src="/static/img/alumnusb_logo.jpg" alt="">
+    <img class="masthead-avatar mb-5" src="../static/img/alumnusb_logo.jpg" alt="">
 
     <!-- Masthead Heading -->
     <h1 class="masthead-heading text-uppercase mb-0">La USB agradece tu colaboración</h1>
@@ -42,10 +42,10 @@
       <div class="divider-custom-line"></div>
     </div>
 
-    <!-- USB achievements Items -->
+    <!-- Portfolio Grid Items -->
     <div class="row">
 
-      <!-- Item 1 -->
+      <!-- Portfolio Item 1 -->
       <div class="col-md-6 col-lg-4">
         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
           <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -53,15 +53,11 @@
               <i class="fas fa-plus fa-3x"></i>
             </div>
           </div>
-
-          <!-- Transportation system item -->
-          <div class="bg-info rounded container achievement-item" style="padding: 10px; height: 247px; width: 340px">
-            <img class="img-fluid rounded-circle" src= "/static/img/usbbus.jpg" alt="">
-          </div>
+          <img class="img-fluid" src="../static/img/portfolio/cabin.png" alt="">
         </div>
       </div>
 
-      <!-- Item 2 -->
+      <!-- Portfolio Item 2 -->
       <div class="col-md-6 col-lg-4">
         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
           <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -69,10 +65,7 @@
               <i class="fas fa-plus fa-3x"></i>
             </div>
           </div>
-
-          <div class="achievement-item bg-info rounded container" align = "center" style = "padding: 10px; height: 247px; width: 340px">
-            <img class="img-fluid rounded-circle" src="/static/img/labor_docente.jpg" alt="">
-          </div>
+          <img class="img-fluid" src="../static/img/portfolio/cake.png" alt="">
         </div>
       </div>
 
@@ -84,9 +77,46 @@
               <i class="fas fa-plus fa-3x"></i>
             </div>
           </div>
-          <img class="img-fluid" src="/static/img/portfolio/circus.png" alt="">
+          <img class="img-fluid" src="../static/img/portfolio/circus.png" alt="">
         </div>
       </div>
+
+      <!-- Portfolio Item 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+            <div class="portfolio-item-caption-content text-center text-white">
+              <i class="fas fa-plus fa-3x"></i>
+            </div>
+          </div>
+          <img class="img-fluid" src="../static/img/portfolio/game.png" alt="">
+        </div>
+      </div>
+
+      <!-- Portfolio Item 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
+          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+            <div class="portfolio-item-caption-content text-center text-white">
+              <i class="fas fa-plus fa-3x"></i>
+            </div>
+          </div>
+          <img class="img-fluid" src="../static/img/portfolio/safe.png" alt="">
+        </div>
+      </div>
+
+      <!-- Portfolio Item 6 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
+          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+            <div class="portfolio-item-caption-content text-center text-white">
+              <i class="fas fa-plus fa-3x"></i>
+            </div>
+          </div>
+          <img class="img-fluid" src="../static/img/portfolio/submarine.png" alt="">
+        </div>
+      </div>
+
     </div>
     <!-- /.row -->
 
@@ -118,6 +148,14 @@
         <p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
       </div>
     </div>
+
+    <!-- About Section Button -->
+    <!--<div class="text-center mt-4">
+      <a class="btn btn-xl btn-outline-light">
+        <i class="fas fa-download mr-2"></i>
+        Free Download!
+      </a>
+    </div>-->
   </div>
 </section>
 
@@ -140,9 +178,12 @@
     <!-- Contact Section Form -->
     <div class="row">
       <div class="col-lg-8 mx-auto">
+
+
         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
         <form name="sentMessage" id="contactForm" novalidate="novalidate" method="POST">
           {% csrf_token %}
+
           <div class="control-group">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label>Username</label>
@@ -150,6 +191,8 @@
               <p class="help-block text-danger"></p>
             </div>
           </div>
+
+
           <div class="control-group">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label>Email Address</label>
@@ -157,6 +200,8 @@
               <p class="help-block text-danger"></p>
             </div>
           </div>
+
+
           <div class="control-group">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label>Password</label>
@@ -164,6 +209,8 @@
               <p class="help-block text-danger"></p>
             </div>
           </div>
+
+
           <div class="control-group">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label>Re Password</label>
@@ -171,15 +218,70 @@
               <p class="help-block text-danger"></p>
             </div>
           </div>
+
+
           <br>
           <div id="success"></div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
           </div>
+          
         </form>
+
+
+
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer text-center bg-third">
+  <div class="container">
+    <div class="row">
+
+      <!-- Footer Location -->
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <h4 class="text-uppercase mb-4 text-black">Ubicación</h4>
+        <p class="lead mb-0 text-black">Massachusetts, USA</p>
+      </div>
+
+      <!-- Footer Social Icons -->
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <h4 class="text-uppercase mb-4 text-black">Contacto</h4>
+        <a class="btn btn-outline-dark btn-social mx-1" href="https://www.instagram.com/alumn_usb/">
+          <i class="fab fa-fw fa-instagram"></i>
+        </a>
+        <a class="btn btn-outline-dark btn-social mx-1" href="https://twitter.com/alumn_usb/">
+          <i class="fab fa-fw fa-twitter"></i>
+        </a>
+        <a class="btn btn-outline-dark btn-social mx-1" href="https://facebook.com/alumnusb/">
+          <i class="fab fa-fw fa-facebook-f"></i>
+        </a>
+        <a class="btn btn-outline-dark btn-social mx-1" href="https://www.youtube.com/c/alumnusb/">
+          <i class="fab fa-fw fa-youtube"></i>
+        </a>
+        <a class="btn btn-outline-dark btn-social mx-1" href="https://www.linkedin.com/company/alumnusb/">
+          <i class="fab fa-fw fa-linkedin-in"></i>
+        </a>
+      </div>
+
+      <!-- Footer About Text -->
+      <div class="col-lg-4">
+        <h4 class="text-uppercase mb-4 text-black">Info</h4>
+        <p class="lead mb-0 text-black">Freelance is a free to use, MIT licensed Bootstrap theme created by
+          <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<!-- Copyright Section -->
+<section class="copyright py-4 text-center text-white bg-black">
+  <div class="container">
+    <small>Copyright &copy; Alumnification 2020</small>
   </div>
 </section>
 
@@ -216,7 +318,7 @@
                 <div class="divider-custom-line"></div>
               </div>
               <!-- Portfolio Modal - Image -->
-              <img class="img-fluid rounded mb-5" src="/static/img/portfolio/cabin.png" alt="">
+              <img class="img-fluid rounded mb-5" src="img/portfolio/cabin.png" alt="">
               <!-- Portfolio Modal - Text -->
               <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
               <button class="btn btn-primary" href="#" data-dismiss="modal">
@@ -255,7 +357,7 @@
                 <div class="divider-custom-line"></div>
               </div>
               <!-- Portfolio Modal - Image -->
-              <img class="img-fluid rounded mb-5" src="/static/img/portfolio/cake.png" alt="">
+              <img class="img-fluid rounded mb-5" src="img/portfolio/cake.png" alt="">
               <!-- Portfolio Modal - Text -->
               <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
               <button class="btn btn-primary" href="#" data-dismiss="modal">
@@ -294,7 +396,7 @@
                 <div class="divider-custom-line"></div>
               </div>
               <!-- Portfolio Modal - Image -->
-              <img class="img-fluid rounded mb-5" src="/static/img/portfolio/circus.png" alt="">
+              <img class="img-fluid rounded mb-5" src="img/portfolio/circus.png" alt="">
               <!-- Portfolio Modal - Text -->
               <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
               <button class="btn btn-primary" href="#" data-dismiss="modal">
@@ -333,7 +435,7 @@
                 <div class="divider-custom-line"></div>
               </div>
               <!-- Portfolio Modal - Image -->
-              <img class="img-fluid rounded mb-5" src="/static/img/portfolio/game.png" alt="">
+              <img class="img-fluid rounded mb-5" src="img/portfolio/game.png" alt="">
               <!-- Portfolio Modal - Text -->
               <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
               <button class="btn btn-primary" href="#" data-dismiss="modal">
@@ -372,7 +474,7 @@
                 <div class="divider-custom-line"></div>
               </div>
               <!-- Portfolio Modal - Image -->
-              <img class="img-fluid rounded mb-5" src="/static/img/portfolio/safe.png" alt="">
+              <img class="img-fluid rounded mb-5" src="img/portfolio/safe.png" alt="">
               <!-- Portfolio Modal - Text -->
               <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
               <button class="btn btn-primary" href="#" data-dismiss="modal">
@@ -411,7 +513,7 @@
                 <div class="divider-custom-line"></div>
               </div>
               <!-- Portfolio Modal - Image -->
-              <img class="img-fluid rounded mb-5" src="/static/img/portfolio/submarine.png" alt="">
+              <img class="img-fluid rounded mb-5" src="img/portfolio/submarine.png" alt="">
               <!-- Portfolio Modal - Text -->
               <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
               <button class="btn btn-primary" href="#" data-dismiss="modal">
