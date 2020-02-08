@@ -44,9 +44,9 @@
     </div>
 
     <!-- Alumn Achievements Items -->
-    <div class="row-eq-height">
+    <div class="row display-flex">
 
-      <!-- Portfolio Item 1 -->
+      <!-- Achievement Item 1 -->
       <div class="col-md-6 col-lg-4">
         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
           <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -54,37 +54,37 @@
               <i class="fas fa-plus fa-3x"></i>
             </div>
           </div>
-          <div class = "bg-primary  rounded p-2 text-light" >
+          <div class = "bg-primary  rounded p-2 text-light" style="height: 20rem;" >
             <img class="img-fluid rounded" src="{% static 'img/usbbus.jpg' %}" alt="">
             <h4>Recuperación del transporte</h4>
           </div>
         </div>
       </div>
 
-      <!-- Portfolio Item 2 -->
-      <div class="col-md-6 col-lg-4">
+      <!-- Achievement Item 2 -->
+      <div class="col-md-6 col-lg-4 col">
         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
           <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
             <div class="portfolio-item-caption-content text-center text-white">
               <i class="fas fa-plus fa-3x"></i>
             </div>
           </div>
-          <div class = "bg-primary  rounded p-2 text-light h-100" >
+          <div class = "bg-primary  rounded p-2 text-light" style="height: 20rem;">
             <img class="img-fluid rounded" src="{% static 'img/labor_docente.jpg' %}" alt="">
             <h4>Premio a la destacada labor docente</h4>
           </div>
         </div>
       </div>
 
-      <!-- Portfolio Item 3 -->
-      <div class="col-md-6 col-lg-4">
+      <!-- Achievement Item 3 -->
+      <div class="col-md-6 col-lg-4 col">
         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
           <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
             <div class="portfolio-item-caption-content text-center text-white">
               <i class="fas fa-plus fa-3x"></i>
             </div>
           </div>
-          <div class = "bg-primary  rounded p-2 text-light h-100" >
+          <div class = "bg-primary  rounded p-2 text-light" style="height: 20rem;">
             <img class="img-fluid rounded" src="{% static 'img/scholar.jpg' %}" alt="">
             <h4>Programa de becas</h4>
           </div>
@@ -134,14 +134,15 @@
   </div>
 </section>
 
-<!-- Contact Section -->
+<!-- Contact Section --
 <section class="page-section" id="contact">
   <div class="container">
-
-    <!-- Contact Section Heading -->
+    
+    <--
+    <-- Contact Section Heading --
     <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Usuario</h2>
 
-    <!-- Icon Divider -->
+    <-- Icon Divider --
     <div class="divider-custom">
       <div class="divider-custom-line"></div>
       <div class="divider-custom-icon">
@@ -150,12 +151,10 @@
       <div class="divider-custom-line"></div>
     </div>
 
-    <!-- Contact Section Form -->
+    <-- Contact Section Form --
     <div class="row">
       <div class="col-lg-8 mx-auto">
 
-
-        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
         <form name="sentMessage" id="contactForm" novalidate="novalidate" method="POST">
           {% csrf_token %}
 
@@ -202,7 +201,7 @@
           </div>
           
         </form>
-
+        -->
 
 
       </div>
