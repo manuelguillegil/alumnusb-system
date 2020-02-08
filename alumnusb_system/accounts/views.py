@@ -51,7 +51,7 @@ def edit_user_data(request, username):
         form = EditUserDataForm(request.POST, instance=user_info)
         if form.is_valid():
             form.save()
-            return redirect('Datos Personales')  
+            return redirect('edit_user_data_test', request.user.username)  
     else:
         form = EditUserDataForm(instance=user_info)
 
