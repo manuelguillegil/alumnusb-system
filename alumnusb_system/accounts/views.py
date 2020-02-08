@@ -25,7 +25,7 @@ def indexView(request):
 
 @login_required
 def dashboardView(request):
-    return render(request,'user_data.html')
+    return render(request,'dashboard.html')
 
 @csrf_protect
 def registerView(request):
