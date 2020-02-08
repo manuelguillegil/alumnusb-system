@@ -14,6 +14,16 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
+            if not User_information.filter(Email=user.email).exists():
+                user1inf = User_information(First_name='Luis',Middle_name='Algo',
+                    Last_name='Dias',Mailing_city='Caracas',USB_alumn=1,
+                    Codigo_Alumn_USB='1234',Mailing_country='Venezuela',
+                    Email=user.email,Mobile='03013201',Cohorte=15,Birthdate=1/1/1990,
+                    Age=20,Undergrad_degree='compu',Graduate_degree='compu',Carnet='1511540',
+                    USB_undergrad_campus='Sartenejar',Graduate_campus='sartenejas',Work_email='',
+                    Workplace='',Donor=1,Social_networks='tw,ig,fc',Twitter_account='ldiaz',
+                    Instagram_account='ldiaz')
+                user1inf.save()
             return redirect('home')
     else:
         form = SignUpForm()
@@ -32,7 +42,17 @@ def registerView(request):
     if request.method == "POST":
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            if not User_information.objects.filter(Email=user.email).exists():
+                user1inf = User_information(First_name='',Middle_name='',
+                    Last_name='D',Mailing_city='',USB_alumn=0,
+                    Codigo_Alumn_USB='',Mailing_country='',
+                    Email=user.email,Mobile='',Cohorte=0,Birthdate='2020-1-1',
+                    Age=1,Undergrad_degree='',Graduate_degree='',Carnet=0,
+                    USB_undergrad_campus='',Graduate_campus='',Work_email='',
+                    Workplace='',Donor=1,Social_networks='',Twitter_account='',
+                    Instagram_account='')
+                user1inf.save()
             return redirect('login_url')
     else:
         form = SignUpForm()
