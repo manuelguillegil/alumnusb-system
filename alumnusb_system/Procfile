@@ -1,1 +1,1 @@
-web: gunicorn alumnusb_system.wsgi
+web: gunicorn alumnusb-system.wsgi
