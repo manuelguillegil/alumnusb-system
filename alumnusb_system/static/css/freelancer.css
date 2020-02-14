@@ -6224,6 +6224,10 @@ a.close.disabled {
   background-color: #eded10 !important;
 }
 
+.bg-fourth {
+  background-color: #ffffbe !important;
+}
+
 .bg-black {
   background-color: black !important;
 }
@@ -6286,6 +6290,10 @@ button.bg-danger:focus {
 
 .bg-light {
   background-color: #f8f9fa !important;
+}
+
+.bg-white {
+  background-color: #ffffff !important;
 }
 
 a.bg-light:hover, a.bg-light:focus,
@@ -9751,8 +9759,17 @@ a.text-dark:hover, a.text-dark:focus {
 .masthead-bg {
   background: #fff no-repeat url("../img/USB.jpg");
   background-size: cover;
-  
 
+}
+
+.masthead-bg-secondary {
+  background: #fff no-repeat url("/static/img/jardines.jpg");
+  background-size: cover;
+}
+
+.masthead-bg-third {
+  background: #fff no-repeat url("/static/img/entrada.jpg");
+  background-size: cover;
 }
 
 .mastheadaux {

@@ -3,9 +3,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth import authenticate, login
 
 from .models import User_information
 from .forms import SignUpForm, EditUserDataForm, getUserDataForm
+from django.contrib.auth.views import LoginView
 
 # Quitar esta view luego
 def signup(request):
@@ -28,7 +30,6 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
-
 
 def indexView(request):
     return render(request,'index.html')

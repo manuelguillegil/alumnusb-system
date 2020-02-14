@@ -134,15 +134,14 @@
   </div>
 </section>
 
-<!-- Contact Section --
+<!--
 <section class="page-section" id="contact">
   <div class="container">
     
-    <--
-    <-- Contact Section Heading --
+    <-- Contact Section Heading 
     <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Usuario</h2>
 
-    <-- Icon Divider --
+    <-- Icon Divider
     <div class="divider-custom">
       <div class="divider-custom-line"></div>
       <div class="divider-custom-icon">
@@ -151,57 +150,69 @@
       <div class="divider-custom-line"></div>
     </div>
 
-    <-- Contact Section Form --
+    <-- Contact Section Form
     <div class="row">
       <div class="col-lg-8 mx-auto">
 
-        <form name="sentMessage" id="contactForm" novalidate="novalidate" method="POST">
+        <form name="sentMessage" id="registerUser" novalidate="novalidate" method="POST">
           {% csrf_token %}
+          {{ form.non_field_errors }}
 
-          <div class="control-group">
+          <div class="fieldWrapper">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Username</label>
-              <input class="form-control" id="username" type="email" placeholder="Username" required="required" data-validation-required-message="Please enter your email address.">
-              <p class="help-block text-danger"></p>
+              {{ form.username.errors }}
+              {{ form.username.label_tag }}
+              {{ form.username }}
+              {% if form.username.help_text %}
+                <p class="help-block text-danger">{{ form.username.help_text|safe }}</p>
+              {% endif %}
             </div>
           </div>
 
 
-          <div class="control-group">
+          <div class="fieldWrapper">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Email Address</label>
-              <input class="form-control" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address.">
-              <p class="help-block text-danger"></p>
+              {{ form.email.errors }}
+              {{ form.email.label_tag }}
+              {{ form.email }}
+              {% if form.email.help_text %}
+                <p class="help-block text-danger">{{ form.email.help_text|safe }}</p>
+              {% endif %}
             </div>
           </div>
 
 
-          <div class="control-group">
+          <div class="fieldWrapper">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Password</label>
-              <input class="form-control" id="pass" type="tel" placeholder="Password" required="required" data-validation-required-message="Please enter your password number.">
-              <p class="help-block text-danger"></p>
+              {{ form.password1.errors }}
+              {{ form.password1.label_tag }}
+              {{ form.password1 }}
+              {% if form.password1.help_text %}
+                <p class="help-block text-danger">{{ form.password1.help_text|safe }}</p>
+              {% endif %}
             </div>
           </div>
 
 
-          <div class="control-group">
+          <div class="fieldWrapper">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Re Password</label>
-              <input class="form-control" id="repass" type="tel" placeholder="Re Password" required="required" data-validation-required-message="Please enter your password number.">
-              <p class="help-block text-danger"></p>
+              {{ form.password2.errors }}
+              {{ form.password2.label_tag }}
+              {{ form.password2 }}
+              {% if form.password2.help_text %}
+                <p class="help-block text-danger">{{ form.password2.help_text|safe }}</p>
+              {% endif %}
             </div>
           </div>
 
 
           <br>
           <div id="success"></div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-outline-al btn-xl" id="sendMessageButton">Send</button>
           </div>
-          
         </form>
-        -->
+       
 
 
       </div>
@@ -209,7 +220,7 @@
 
   </div>
 </section>
-
+-->
 <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
 <div class="scroll-to-top d-lg-none position-fixed ">
   <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">

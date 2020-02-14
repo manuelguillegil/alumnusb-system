@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 
 {% block title %} Register User {% endblock %}
-
+<!--RECUERDATE DE CAMBIARLE EL URL A ESTO PORQUE SALE TEST_LUIS-->
 {% block content %}
-
-    <div class="container masthead bg-primary text-white text-center">
-    
+<div class="masthead masthead-bg-secondary">
+    <div class="container bg-white d-flex flex-column rounded">
+      <br>
+      <br>
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase text-black mb-0">Create new account</h1>
+      <h1 class="masthead-heading text-uppercase text-center text-secondary mb-0">Create new account</h1>
     
       <!-- Icon Divider -->
-      <div class="divider-custom divider-light">
+      <div class="divider-custom">
         <div class="divider-custom-line"></div>
         <div class="divider-custom-icon">
           <i class="fas fa-star"></i>
@@ -18,26 +19,70 @@
         <div class="divider-custom-line"></div>
       </div>
 
-      <div class="container d-flex align-items-center flex-column">
-        <form method = "POST">
+      <div class="row">
+      <div class="col-lg-8 mx-auto">
+
+        <form name="sentMessage" id="registerUser" novalidate="novalidate" method="POST">
           {% csrf_token %}
-          {% for field in form %}
-            <div class="fieldWrapper">
-              <strong class="navbar-brand text-black">
-                {{ field.errors }}
-                {{ field.label_tag }} 
-              </strong>
-              <br>
-              {{ field }}
-              {% if field.help_text %}
-              <p class="help">{{ field.help_text|safe }}</p>
+          {{ form.non_field_errors }}
+
+          <div class="fieldWrapper">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              {{ form.username.errors }}
+              {{ form.username.label_tag }}
+              {{ form.username }}
+              {% if form.username.help_text %}
+                <p class="help-block text-danger">{{ form.username.help_text|safe }}</p>
               {% endif %}
             </div>
-          {% endfor %}
+          </div>
+
+
+          <div class="fieldWrapper">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              {{ form.email.errors }}
+              {{ form.email.label_tag }}
+              {{ form.email }}
+              {% if form.email.help_text %}
+                <p class="help-block text-danger">{{ form.email.help_text|safe }}</p>
+              {% endif %}
+            </div>
+          </div>
+
+
+          <div class="fieldWrapper">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              {{ form.password1.errors }}
+              {{ form.password1.label_tag }}
+              {{ form.password1 }}
+              {% if form.password1.help_text %}
+                <p class="help-block text-danger">{{ form.password1.help_text|safe }}</p>
+              {% endif %}
+            </div>
+          </div>
+
+
+          <div class="fieldWrapper">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              {{ form.password2.errors }}
+              {{ form.password2.label_tag }}
+              {{ form.password2 }}
+              {% if form.password2.help_text %}
+                <p class="help-block text-danger">{{ form.password2.help_text|safe }}</p>
+              {% endif %}
+            </div>
+          </div>
+
+
           <br>
-          <button class="btn btn-outline-al btn-xl">Register</button>
+          <div id="success"></div>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-outline-al btn-xl" id="sendMessageButton">Send</button>
+          </div>
         </form>
+        <br>
       </div>
     </div>
-
+    </div>
+</div>
 {% endblock content %}

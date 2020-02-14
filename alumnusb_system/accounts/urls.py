@@ -6,7 +6,7 @@ urlpatterns = [
 	path('',account_views.indexView,name="home_logout"),
 	path('dashboard/',account_views.dashboardView,name="dashboard"),
 	path('login/',LoginView.as_view(),name="login_url"),
-	path('register/',account_views.registerView,name="register_url"),
-	path('test_luis/',account_views.registerView,name="register_url"),
+	#path('register/',account_views.registerView,name="register_url"),
+	path('registeruser/',account_views.registerView,name="register_url"),
 	path('logout/',LogoutView.as_view(next_page="home"),name="logout")
 ]
