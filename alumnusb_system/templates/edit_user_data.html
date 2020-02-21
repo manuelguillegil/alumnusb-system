@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 
+{% load widget_tweaks %}
+
 {% block title %} Edit User Data {% endblock %}
 
 {% block content %}
-  <div class="container masthead bg-primary text-white text-center">
-    <h1 class="masthead-heading text-uppercase text-black mb-0">Edit user info</h1>
+<div class="masthead masthead-bg-secondary">
+  <div class="container bg-white d-flex flex-column rounded">
+    <br>
+    <br>
+    <h1 class="masthead-heading text-uppercase text-center text-secondary mb-0">Edit user info</h1>
     
     <!-- Icon Divider -->
-    <div class="divider-custom divider-light">
+    <div class="divider-custom">
       <div class="divider-custom-line"></div>
       <div class="divider-custom-icon">
         <i class="fas fa-star"></i>
@@ -15,26 +20,34 @@
       <div class="divider-custom-line"></div>
     </div>
 
-    <form method="post">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <form method="POST">
 
-      {% csrf_token %}
-      {% for field in form %}
-        <div class="fieldWrapper">
-          <strong class="navbar-brand text-uppercase text-black">
-            {{ field.errors }}
-            {{ field.label_tag }} 
-          </strong>
-
-          {{ field }}
-          {% if field.help_text %}
-          <p class="help">{{ field.help_text|safe }}</p>
-          {% endif %}
-        </div>
-      {% endfor %}
-      <br>
-      <button type="submit" class="btn btn-outline-al btn-xl">Save</button>
-
-    </form>
+          {% csrf_token %}
+          {% for field in form %}
+            <div class="fieldWrapper">
+              <div class="form-group floating-label-form-group-edit controls mb-0 pb-2">
+                {{ field.errors }}
+                {{ field.label_tag }} 
+                
+                {{ field |attr:"class:form-control"|attr:"placeholder:Information"|attr:"style: background-color: rgba(73, 80, 87, 0.1)" }}
+                
+                {% if field.help_text %}
+                  <p class="help-block text-danger">{{ field.help_text|safe }}</p>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+          <br>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-outline-al btn-xl">Save</button>
+          </div>
+        </form>
+        <br>
+      </div>
+    </div>
   </div>
+</div>
 
 {% endblock content%}
