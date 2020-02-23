@@ -6225,7 +6225,7 @@ a.close.disabled {
 }
 
 .bg-fourth {
-  background-color: #ffffbe !important;
+  background-color: rgba(233, 229, 200, 0.5) !important;
 }
 
 .bg-black {
@@ -9977,4 +9977,10 @@ form .row:first-child .floating-label-form-group {
 
 .copyright {
   background-color: #1a252f;
+}
+
+.bg-login-image {
+  background: url("/static/img/jardines.jpg");
+  background-position: center;
+  background-size: cover;
 }

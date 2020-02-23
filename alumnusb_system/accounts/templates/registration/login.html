@@ -5,54 +5,64 @@
 {% block title %} Login User {% endblock %}
 
 {% block content %}
-<div class="masthead masthead-bg-secondary">
-    <div class="container bg-white d-flex flex-column rounded">
-      <br>
-      <br>
-      <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase text-center text-secondary mb-0">Log in into your account</h1>
-    
-      <!-- Icon Divider -->
-      <div class="divider-custom">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon">
-          <i class="fas fa-star"></i>
+<div class="row justify-content-center bg-fourth">
+  <div class="masthead col-xl-10 col-lg-12 col-md-9">
+    <div class="card o-hidden shadow-lg border-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6 d-none d-lg-block bg-login-image rounded"></div>
+          <div class="col-lg-6">
+            <br>
+            <br>
+            <!-- Masthead Heading -->
+            <h1 class="masthead-heading text-uppercase text-center text-secondary mb-0">Log in into your account</h1>
+          
+            <!-- Icon Divider -->
+            <div class="divider-custom">
+              <div class="divider-custom-line"></div>
+              <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="divider-custom-line"></div>
+            </div>
+
+            <div class="row">
+            <div class="col-lg-8 mx-auto">
+
+              <form name="sentMessage" id="loginUser" novalidate="novalidate" method="POST">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                <div class="fieldWrapper">
+                  <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                    {{ form.username.errors }}
+                    {{ form.username.label_tag }}
+                    {{ form.username|attr:"class:form-control"|attr:"placeholder:Username"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
+                  </div>
+                </div>
+
+                <div class="fieldWrapper">
+                  <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                    {{ form.password.errors }}
+                    {{ form.password.label_tag }}
+                    {{ form.password|attr:"class:form-control"|attr:"placeholder:Password"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
+                  </div>
+                </div>
+                <!-- Gris de antes rgba(73, 80, 87, 0.1) -->
+
+                <br>
+                <div id="success"></div>
+                <div class="form-group text-center">
+                  <button type="submit" class="btn btn-outline-al btn-xl" id="sendMessageButton">Enter</button>
+                </div>
+              </form>
+              <br>
+            </div>
+          </div>
         </div>
-        <div class="divider-custom-line"></div>
       </div>
-
-      <div class="row">
-      <div class="col-lg-8 mx-auto">
-
-        <form name="sentMessage" id="loginUser" novalidate="novalidate" method="POST">
-          {% csrf_token %}
-          {{ form.non_field_errors }}
-
-          <div class="fieldWrapper">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              {{ form.username.errors }}
-              {{ form.username.label_tag }}
-              {{ form.username|attr:"class:form-control"|attr:"placeholder:Username"|attr:"style: background-color: rgba(73, 80, 87, 0.1)" }}
-            </div>
-          </div>
-
-          <div class="fieldWrapper">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              {{ form.password.errors }}
-              {{ form.password.label_tag }}
-              {{ form.password|attr:"class:form-control"|attr:"placeholder:Password"|attr:"style: background-color: rgba(73, 80, 87, 0.1)" }}
-            </div>
-          </div>
-
-          <br>
-          <div id="success"></div>
-          <div class="form-group text-center">
-            <button type="submit" class="btn btn-outline-al btn-xl" id="sendMessageButton">Enter</button>
-          </div>
-        </form>
-        <br>
       </div>
     </div>
-    </div>
+  </div>
 </div>
 {% endblock content %}
