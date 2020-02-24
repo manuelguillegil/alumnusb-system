@@ -1,12 +1,12 @@
-{% extends 'base.html' %}
+{% extends 'user_data.html' %}
 
 {% load widget_tweaks %}
 
 {% block title %} Edit User Data {% endblock %}
 
 {% block content %}
-<div class="masthead masthead-bg-secondary">
-  <div class="container bg-white d-flex flex-column rounded">
+<div class="masthead">
+  <div class="container bg-white d-flex flex-column rounded shadow-lg">
     <br>
     <br>
     <h1 class="masthead-heading text-uppercase text-center text-secondary mb-0">Edit user info</h1>
@@ -31,7 +31,7 @@
                 {{ field.errors }}
                 {{ field.label_tag }} 
                 
-                {{ field |attr:"class:form-control"|attr:"placeholder:Information"|attr:"style: background-color: rgba(73, 80, 87, 0.1)" }}
+                {{ field |attr:"class:form-control"|attr:"placeholder:Information"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
                 
                 {% if field.help_text %}
                   <p class="help-block text-danger">{{ field.help_text|safe }}</p>
