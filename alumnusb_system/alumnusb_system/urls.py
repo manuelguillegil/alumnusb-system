@@ -11,5 +11,7 @@ urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
 
-    path('accounts/', include('accounts.urls'))
+    path('accounts/', include('accounts.urls')),
+
+    url(r'^dashboard/(?P<username>[\w.@+-]+)/$', views.dashboard, name = 'dashboard')
 ]
