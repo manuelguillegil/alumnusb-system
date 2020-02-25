@@ -58,9 +58,8 @@ class LoginForm(LoginView):
         model = User
         fields = ('username', 'password')
 
-class EditUserDataForm(forms.ModelForm):#UserChangeForm):
-    """docstring for EditUserData"""
-    #message = forms.CharField(widget=forms.Textarea(), max_length=4000)
+
+class EditUserDataForm(forms.ModelForm):
 
     class Meta:
         model = User_information

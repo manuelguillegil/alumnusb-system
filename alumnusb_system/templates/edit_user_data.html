@@ -28,14 +28,14 @@
           {% for field in form %}
             <div class="fieldWrapper">
               <div class="form-group floating-label-form-group-edit controls mb-0 pb-2">
-                {{ field.errors }}
                 {{ field.label_tag }} 
                 
                 {{ field |attr:"class:form-control"|attr:"placeholder:Information"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
                 
                 {% if field.help_text %}
-                  <p class="help-block text-danger">{{ field.help_text|safe }}</p>
+                  <p class="help-block">{{ field.help_text|safe }}</p>
                 {% endif %}
+                <strong class="help-block text-danger">{{ field.errors }}</strong>
               </div>
             </div>
           {% endfor %}

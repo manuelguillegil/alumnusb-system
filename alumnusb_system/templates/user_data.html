@@ -32,7 +32,7 @@
                                         
                                     </h5>
                                     <h6>
-                                        {{ User_information.Undergrad_degree }}
+                                        {{ User_information.get_Undergrad_degree_display }}
                                     </h6>
                                     {% if User_information.Donor == 1 %}
                                     <p class="proile-rating">Donor &#127775; </p>
@@ -64,6 +64,7 @@
                             <ul>
                                 <li>Mailing city: {{ User_information.Mailing_city}}</li>
                                 <li>Mailing state: {{ User_information.Mailing_state}}</li>
+                                <li>Mailing country: {{ User_information.get_Mailing_country_display }}</li>
                                 <li>Mobile number: {{ User_information.Mobile }}</li>
                                 <li>Work Email: {{User_information.Work_email}} </li>
                                 <li>Email: {{User_information.Email}} </li>
@@ -111,7 +112,7 @@
                                                 <label> <strong>Undergraduate Campus: </strong> </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p> {{User_information.USB_undergrad_campus}} </p>
+                                                <p> {{User_information.get_USB_undergrad_campus_display }} </p>
                                             </div>
                                         </div>
                                         <div class="row">

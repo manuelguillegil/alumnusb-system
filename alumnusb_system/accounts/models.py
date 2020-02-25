@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from accounts.utils import CountryField
+from accounts.utils import CampusChoice
+from accounts.utils import UndergraduateDegreeChoice
 
 # Model to upload the AlumnUSB fields to our database
 class alumncsv(models.Model):
@@ -45,16 +48,16 @@ class User_information(models.Model):
 	Mailing_state = models.CharField(max_length=20, default='-')
 	USB_alumn = models.IntegerField(default=0)
 	Codigo_Alumn_USB = models.CharField(max_length=20, default='-')
-	Mailing_country = models.CharField(max_length=20, default='-')
+	Mailing_country = CountryField()
 	Email = models.EmailField(max_length=40, unique=True)
 	Mobile = models.CharField(max_length=20, default='-')
 	Cohorte = models.IntegerField(default=0)
 	Birthdate = models.DateField()
 	Age = models.IntegerField(default=0)
-	Undergrad_degree = models.CharField(max_length=40)
+	Undergrad_degree = models.CharField(max_length=3, choices=[(tag.name, tag.value) for tag in UndergraduateDegreeChoice])
 	Graduate_degree = models.CharField(max_length=40)
 	Carnet = models.IntegerField(default=0)
-	USB_undergrad_campus = models.CharField(max_length=30, default='-')
+	USB_undergrad_campus = models.CharField(max_length=2, choices=[(tag.name, tag.value) for tag in CampusChoice])
 	Graduate_campus = models.CharField(max_length=30, default='-')
 	Work_email = models.EmailField(max_length=40)
 	Workplace = models.CharField(max_length=20, default='-')
