@@ -8,7 +8,6 @@
     {% if messages %}
         {% for message in messages %}
             <div>
-<!--                | means OR operator-->
                 <strong>{{message|safe}}</strong>
             </div>
         {% endfor %}
@@ -16,14 +15,11 @@
     {{order}}
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <label for="file1"> Upload a file</label>
+        <label for="file1"> Cargar archivo </label>
         <input type="file" id="file1" name="file">
-        <small>Only accepts CSV files</small>
-        <button type="submit">Upload</button>
+        <small>Solo se acpeptan archivos CSV</small>
+        <button type="submit">Cargar</button>
     </form>
     {% endif %}
-    {% for profile in profiles %}
-    {{profile.name}}
-    {% endfor %}
 </body>
 </html>
