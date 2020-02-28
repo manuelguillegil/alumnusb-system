@@ -24,6 +24,10 @@ def profile_upload(request):
 	io_string = io.StringIO(data_set)
 	next(io_string)
 	for column in csv.reader(io_string, delimiter=',', quotechar="|"):
+			alumncsv.objects.filter(Email=column[9]).delete()
+			User_information.objects.filter(Email=column[9]).delete()
+			User_stats.objects.filter(Email=column[9]).delete()
+
 			created = alumncsv.objects.update_or_create(
 			Account_id=column[0],
 			First_name=column[1],
