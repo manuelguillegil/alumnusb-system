@@ -1,29 +1,32 @@
 import csv, io, datetime
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from accounts.models import *
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, get_object_or_404
 
 
-def profile_upload(request):    
-	template = "profile_upload.html"
-	data = alumncsv.objects.all()
-	prompt = {
-		'order': 'Order of the CSV should be name, email, address,    phone, profile',
-		'profiles': data    
-			  }
-
-	if request.method == "GET":
-		return render(request, template, prompt)    
-
-	csv_file = request.FILES['file']    
+@login_required
+def profile_upload(request):
+	if ( request.user.is_authenticated and request.user.is_staff):    
+		template = "profile_upload.html"
+		data = alumncsv.objects.all()
+		prompt = {
+			'order': 'Order of the CSV should be Account ID, First Name, Middle Name, Last Name, Mailing City, Mailing State/Province, USB Alumn, Codigo AlumnUSB, Mailing Country, Email, Mobile, Cohorte, Birthdate, Age, Undergrad Degree, Graduate Degree, Carnet, USB Undergrad Campus, Graduate Campus, Work Email, Workplace, Donor, Average Gift, Largest Gift, Smallest Gift, Total Gifts, Best Gift Year Total, Best Gift Year, Social Networks, Twitter Account, Instagram Account, First Gift Date, Last Gift Date, Total Number of Gifts'
+				  }
 	
-	if not csv_file.name.endswith('.csv'):
-		return render(request, template, prompt)    
+		if request.method == "GET":
+			return render(request, template, prompt)    
+	
+		csv_file = request.FILES['file']    
+		
+		if not csv_file.name.endswith('.csv'):
+			return render(request, template, prompt)    
 
-	data_set = csv_file.read().decode('UTF-8') 
-	io_string = io.StringIO(data_set)
-	next(io_string)
-	for column in csv.reader(io_string, delimiter=',', quotechar="|"):
+		data_set = csv_file.read().decode('UTF-8') 
+		io_string = io.StringIO(data_set)
+		next(io_string)
+		for column in csv.reader(io_string, delimiter=',', quotechar="|"):
 			alumncsv.objects.filter(Email=column[9]).delete()
 			User_information.objects.filter(Email=column[9]).delete()
 			User_stats.objects.filter(Email=column[9]).delete()
@@ -101,10 +104,14 @@ def profile_upload(request):
 			Last_gift_date=transform_date(column[32]),
 			Total_number_of_gifts=is_int(column[33])
 			)
-	context = {}
-	return render(request, template, context)
+		context = {}
+		return render(request, template, context)
+	else:
+		return redirect('home')
 
 
+
+## Functions to help the csv loader
 def is_int(x):
 	if (x==''):
 		return 0
