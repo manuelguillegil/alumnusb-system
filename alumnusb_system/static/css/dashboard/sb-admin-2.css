@@ -9387,6 +9387,7 @@ a.text-info:hover, a.text-info:focus {
   color: #f6c23e !important;
 }
 
+
 a.text-warning:hover, a.text-warning:focus {
   color: #dda20a !important;
 }
@@ -9413,6 +9414,22 @@ a.text-light:hover, a.text-light:focus {
 
 a.text-dark:hover, a.text-dark:focus {
   color: #373840 !important;
+}
+
+.text-yellow {
+  color: var(--yellow) !important;
+}
+
+.text-blue {
+  color: var(--blue) !important;
+}
+
+.text-green {
+  color: var(--green) !important;
+}
+
+.text-purple {
+  color: var(--purple) !important;
 }
 
 .text-body {
@@ -9858,6 +9875,38 @@ a:focus {
 
 .border-bottom-dark {
   border-bottom: 0.25rem solid #5a5c69 !important;
+}
+
+.border-left-yellow {
+  border-left: 0.25rem solid var(--yellow) !important;
+}
+
+.border-bottom-yellow {
+  border-bottom: 0.25rem solid var(--yellow) !important;
+}
+
+.border-left-blue {
+  border-left: 0.25rem solid var(--blue) !important;
+}
+
+.border-bottom-blue {
+  border-bottom: 0.25rem solid var(--blue) !important;
+}
+
+.border-left-green {
+  border-left: 0.25rem solid var(--green) !important;
+}
+
+.border-bottom-green {
+  border-bottom: 0.25rem solid var(--green) !important;
+}
+
+.border-left-purple {
+  border-left: 0.25rem solid var(--purple) !important;
+}
+
+.border-bottom-purple {
+  border-bottom: 0.25rem solid var(--purple) !important;
 }
 
 .progress-sm {

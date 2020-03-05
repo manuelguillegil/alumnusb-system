@@ -1,0 +1,172 @@
+{% extends 'dashboard/index.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block tab_title %} AlumnUSB - Mis Estadísticas {% endblock %}
+
+{% block page_title %} Mis estadísticas {% endblock %}
+
+
+{% block content %} 
+
+
+  <!-- Row: best gift-->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Mejor donación:</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ stat.Largest_gift }}$ </div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-star fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- Row: average gift-->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Donación promedio</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ stat.Average_gift }}$ </div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-chart-area fa-2x text-gray-300"></i>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- Row: Best donation year-->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-info text-uppercase mb-1"> Año de mejor donación </div>
+                <div class="row no-gutters align-items-center">
+                <div class="col-auto">
+                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"> {{stat.Best_gift_year }}   
+                        <small> Total: {{stat.Best_gift_year_total}}$ </small>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-auto">
+                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+  
+  <!-- first gift -->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-green shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-green  text-uppercase mb-1">Fecha de la  primera donación</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{stat.First_gift_date}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-power-off fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- Last gift year-->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Última donación</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{stat.Last_gift_date}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-angle-double-up fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- Smallest gift -->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-yellow shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-yellow text-uppercase mb-1">Menor donación</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{stat.Smallest_gift}} $</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-seedling fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- Total gifts -->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-blue shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-blue text-uppercase mb-1">Total donado</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{stat.Total_gifts}}$</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- Total gifts -->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-purple shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-purple text-uppercase mb-1">Cantidad de donaciones totales</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{stat.Total_number_of_gifts}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-calculator fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+{% endblock %}
