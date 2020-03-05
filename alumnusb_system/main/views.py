@@ -26,7 +26,7 @@ def dashboard(request, username):
     user_info = get_object_or_404(User_information,  Email=usr.email)
 
     #Try to get the user stats:
-    #usr_stats = get_object_or_404(User_stats, Email=usr.email)
+    usr_stats = get_object_or_404(User_stats, Email=usr.email)
     
 
     if request.method == 'POST':
@@ -37,4 +37,5 @@ def dashboard(request, username):
             return redirect('user_data')  
     else:
         form = EditUserDataForm(instance=user_info)
-    return render(request, 'dashboard/index.html', {'User_information': user_info, 'form': form})
+    return render(request, 'dashboard/index.html', {'User_information': user_info, 'form': form, 'stat':usr_stats})
+
