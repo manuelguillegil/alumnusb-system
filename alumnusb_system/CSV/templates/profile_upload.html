@@ -1,25 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body style="background-color:yellow;"> 
-    {% if messages %}
-        {% for message in messages %}
-            <div>
-                <strong>{{message|safe}}</strong>
+{% extends 'home.html' %}
+
+{% block title %}Cargar CSV{% endblock %}
+{% block content %}
+  <div class="row justify-content-center bg-fourth">
+    <div class="masthead col-xl-10 col-lg-12 col-md-9">
+      <div class="card o-hidden shadow-lg border-0">
+        <div class="card-body">
+          <div class="row">
+            {% if messages %}
+                {% for message in messages %}
+                    <div>
+                        <strong>{{message|safe}}</strong>
+                    </div>
+                {% endfor %}
+            {% else %}
+            <div class="col-lg-6 d-none d-lg-block">
+              <div class="card-body">
+                <label class="masthead-heading text-uppercase text-center text-secondary mb-0">{{ title }}</label>
+                <div class="text-uppercase text-center text-black mb-0" style="padding-top: 10px;">
+                  {{ info }}
+                </div>
+              </div>
             </div>
-        {% endfor %}
-    {% else %}
-    {{order}}
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label for="file1"> Cargar archivo </label>
-        <input type="file" id="file1" name="file">
-        <small>Solo se acpeptan archivos CSV</small>
-        <button type="submit">Cargar</button>
-    </form>
-    {% endif %}
-</body>
-</html>
+            <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card-body">
+                  <div class="masthead-heading text-uppercase text-center text-secondary mb-0">
+                    <label for="file1"> Cargar archivo </label>
+                  </div>
+                  <input type="file" id="file1" name="file" style="padding-top: 20px;">
+                  <div class="text-center text-danger" style="padding-top: 10px;">
+                    <small>Solo se aceptan archivos CSV</small>
+                  </div>
+                  <div class="form-group text-center" style="padding-top: 30px;">
+                    <button class="btn btn-outline-al btn-xl" type="submit">Cargar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            </div>
+            {% endif %} 
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+{% endblock content %}
