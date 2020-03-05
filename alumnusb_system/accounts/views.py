@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login
 
-from .models import User_information
+from .models import User_information, User_stats
 from .forms import SignUpForm, EditUserDataForm, getUserDataForm
 from django.contrib.auth.views import LoginView
 
@@ -25,6 +25,11 @@ def registerView(request):
                     Workplace='',Donor=1,Social_networks='',Twitter_account='',
                     Instagram_account='')
                 user1inf.save()
+            if not User_stats.objects.filter(Email=user.email).exists():
+                user1stats = User_stats(Email=user.email,Average_gift=0,
+                    Largest_gift=0,Smallest_gift=0,Total_gifts=0,
+                    Best_gift_year_total=0,Total_number_of_gifts=0)
+                user1stats.save()
             return redirect('login_url')
     else:
         form = SignUpForm()
