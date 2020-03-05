@@ -71,4 +71,3 @@ def user_data(request, username):
     else:
         form = EditUserDataForm(instance=user_info)
     return render(request, 'user_data.html', {'User_information': user_info, 'form': form})
-    

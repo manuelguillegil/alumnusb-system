@@ -70,7 +70,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{% url 'my_achievs' user.username %}">
           <i class="fas fa-fw fa-medal"></i>
           <span>Mis reconocimientos</span></a>
       </li>
@@ -93,13 +93,17 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Páginas de usuario:</h6>
+            <h6 class="collapse-header">Administrar usuario:</h6>
             <a class="collapse-item" href="{% url 'register_url' %}">Registrar nueva cuenta</a>
             <a class="collapse-item" href="{% url 'user_data' user.username %}">Mis datos</a>
             <a class="collapse-item" href="{% url 'edit_user_data' user.username %}">Editar mis datos</a>
 
-            
             <div class="collapse-divider"></div>
+
+            <h6 class="collapse-header">Sobre mis logros:</h6>
+            <a class="collapse-item" href="#">Mis logros</a>
+            <a class="collapse-item" href="{% url 'my_stats' user.username %}">Mis estadísticas</a>
+            
            
           </div>
         </div>
@@ -153,7 +157,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href=" {% url 'user_data' user.username %} ">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
@@ -265,7 +269,7 @@
 
           <!-- Content Row -->
 
-          <div class="row">
+          <div class="row content-row">
 
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
@@ -336,7 +340,7 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row">
+          <div class="row content-row">
 
             <!-- Content Column -->
             <div class="col-lg-6 mb-4">
@@ -371,7 +375,7 @@
               </div>
 
               <!-- Color System -->
-              <div class="row">
+              <div class="row content-row">
                 <div class="col-lg-6 mb-4">
                   <div class="card bg-primary text-white shadow">
                     <div class="card-body">
@@ -522,6 +526,12 @@
   <script src="{% static 'js/dashboard/demo/chart-area-demo.js' %}"></script>
   <script src="{% static 'js/dashboard/demo/chart-pie-demo.js' %}"></script>
 
+  <!--Temporal script, it hides a lot of things-->
+  <script>
+    $(document).ready(function(){
+      $('.content-row').hide();
+    });
+  </script>
   {% block cscripts %} 
   {% endblock %}
 

@@ -60,3 +60,21 @@ def user_stats(request, username):
     else:
         form = EditUserDataForm(instance=user_info)
     return render(request, 'dashboard/user_stats.html', {'User_information': user_info, 'form': form, 'stat':usr_stats})
+
+@login_required
+def user_achievs(request, username):
+
+    if request.user.username != username:
+        return redirect('home')
+
+    usr = get_object_or_404(User, username=username)
+    user_info = get_object_or_404(User_information,  Email=usr.email)
+
+    if request.method == 'POST':
+        form = EditUserDataForm(request.POST, instance=user_info)
+        if form.is_valid():
+            form.save()
+            return redirect('user_data')  
+    else:
+        form = EditUserDataForm(instance=user_info)
+    return render(request, 'dashboard/user_achievements.html', {'User_information': user_info, 'form': form})
