@@ -56,44 +56,47 @@ def achievements(request, username):
 
     lnd = " Logro no desbloqueado "
 
+    # q is for stats from the db, i for moving through the lists and
+    # f to mark null values
+
     # reach x $
     f = 1
     i = 0
-    ans1 = [lnd, lnd, lnd, lnd, lnd]
+    ans1 = "Logro no desbloqueado"
     q = usr_stats.Total_gifts
     if(q==None):
         f = 0
 
     for x in [50, 100, 500, 1000, 5000]:
         if(f==1  and x <= q):
-            ans1[i] = "LLegaste a %d dolares!",x
+            ans1 = "LLegaste a %d dolares!",x
         i += 1
 
 
     # number of gifts, reach y
     f = 1
     i = 0
-    ans2 = [lnd, lnd, lnd, lnd, lnd]
+    ans2 =  "Logro no desbloqueado"
     q = usr_stats.Total_number_of_gifts
     if(q==None):
         f = 0
 
     for y in [5, 10, 20, 30, 50]:
         if(f==1 and q >= y):
-            ans2[i] = " LLegaste a %d donaciones! ", y
+            ans2 = " LLegaste a %d donaciones! ", y
         i+=1
 
     # Star gitf, make a gift larger than x
     f = 1
     i = 0
-    ans3 = [lnd, lnd, lnd, lnd, lnd]
+    ans3 =  "Logro no desbloqueado"
     q = usr_stats.Largest_gift
     if(q==None):
         f = 0
 
     for x in [100, 200, 300, 500, 1000]:
         if(f==1 and q >= x):
-            ans3[i] = " Donacion estrella! "
+            ans3 = " Donacion estrella! %d", x
         i += 1
 
 
@@ -102,7 +105,7 @@ def achievements(request, username):
     if(q != None):
         ans4 = " Has donado por primera vez! "
     else:
-        ans4 = lnd
+        ans4 =  "Logro no desbloqueado"
 
     # frequent donor
     f = 1
@@ -116,10 +119,12 @@ def achievements(request, username):
     if(last==None):
         f = 0
     months = ((last - start).days)//30
+    if months == 0 :
+        f = 0
     if(f==1 and n_gifts/months >= 1):
         ans5 = " Donante frecuente! "
     else:
-        ans5= lnd
+        ans5=  "Logro no desbloqueado"
 
     args = {'ach1': ans1, 'ach2': ans2, 'ach3': ans3, 'ach4': ans4, 'ach5': ans5}
 
