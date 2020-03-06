@@ -6,7 +6,12 @@
 {% block title %} Registro de usuario {% endblock %}
 
 {% block first_col %} 
-  <img class="img-fluid rounded p-0 justify-content-between" src="{% static 'img/trees-usb.jpg' %}" alt="">
+  <figure class="p-3">
+    <img class="img-fluid rounded p-0 justify-content-between" src="{% static 'img/trees-usb.jpg' %}" alt="">
+  </figure>
+  <a href="{% url 'login_url' %}">
+  <h3 class="text-uppercase text-center text-secondary mt-5 mb-0"> ¿Ya tienes una cuenta? </h3>
+  </a>
 {% endblock first_col %}
 
 {% block form_title %} <div class="mr-3">Crear nueva cuenta</div>  {% endblock %}
