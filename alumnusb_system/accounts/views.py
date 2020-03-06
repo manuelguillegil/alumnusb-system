@@ -28,7 +28,7 @@ def registerView(request):
             if not User_stats.objects.filter(Email=user.email).exists():
                 user1stats = User_stats(Email=user.email,Average_gift=0,
                     Largest_gift=0,Smallest_gift=0,Total_gifts=0,
-                    Best_gift_year_total=0,Total_number_of_gifts=0)
+                    Best_gift_year_total=0,Best_gift_year=0, First_gift_date='2020-1-1', Last_gift_date='2020-1-1', Total_number_of_gifts=0)
                 user1stats.save()
             return redirect('login_url')
     else:
