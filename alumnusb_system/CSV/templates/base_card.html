@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="bg-fourth">
+<div class="container-fluid">
+
+  <div class="row justify-content-center">
+    <div class="masthead col-xl-10 col-lg-12 col-md-9">
+      <div class="card o-hidden shadow-lg border-0 my-5">
+        <div class="card-body p-0">
+
+            <div class="row">
+              <div class="col-lg-6 mh-100">
+                {% block first_col %}
+                {% endblock first_col %}
+              </div>
+              <div class="col-lg-6">
+                <div class="text-center">
+                  <h1 class="masthead-heading text-uppercase text-secondary mt-5 mb-0"> {% block form_title %}{% endblock %} </h1>
+                  {% block decorator %}{% endblock decorator %}
+                </div>
+                {% block second_col %}
+                {% endblock second_col %}
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+{% endblock content %}

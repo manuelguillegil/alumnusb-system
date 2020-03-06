@@ -7,34 +7,33 @@ from django.contrib.auth.views import LoginView
 
 class SignUpForm(UserCreationForm):
     username = forms.CharField(
-        label='Username',
-        help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.', 
+        label='Nombre de usuario',
+        help_text='Requerido. 150 caracteres o menos. Letras, dígitos y @/./+/-/_ solamente.', 
         max_length=152,
         required=True, 
         widget=forms.TextInput(attrs={'class': "form-control", 'placeholder': 'Username', 'style': 'background-color: rgba(73, 80, 87, 0.1)'}),
     )
 
     email = forms.CharField(
-        label="Email",
+        label="Correo electrónico",
         max_length=254, 
         required=True, 
         widget=forms.EmailInput(attrs={'class': "form-control", 'placeholder': 'info@example.com', 'style': 'background-color: rgba(73, 80, 87, 0.1)'}),
     )
     
     password1 = forms.CharField(
-        label="Password",
+        label="Contraseña",
         strip=False,
         widget=forms.PasswordInput(attrs={'class': "form-control", 'placeholder': 'Password', 'style': 'background-color: rgba(73, 80, 87, 0.1)'}),
         help_text=password_validation.password_validators_help_text_html(),
     )
 
     password2 = forms.CharField(
-        label="Password Confirmation",
+        label="Confirma Contraseña",
         strip=False,
         widget=forms.PasswordInput(attrs={'class': "form-control", 'placeholder': 'Password Confirmation', 'style': 'background-color: rgba(73, 80, 87, 0.1)'}),
-        help_text="Enter the same password as before, for verification.",
+        help_text="Ingrese la misma contraseña para verificación.",
     )
-    #EL COLOR 69, 220, 53
     
     class Meta:
         model = User
@@ -42,14 +41,14 @@ class SignUpForm(UserCreationForm):
 
 class LoginForm(LoginView):
     username = forms.CharField(
-        label='Username',
+        label='Nombre de usuario',
         max_length=152,
         required=True, 
         widget=forms.TextInput(attrs={'class': "form-control", 'placeholder': 'Username', 'style': 'background-color: rgba(73, 80, 87, 0.1)'}),
     )
     
     password1 = forms.CharField(
-        label="Password",
+        label="Contraseña",
         strip=False,
         widget=forms.PasswordInput(attrs={'class': "form-control", 'placeholder': 'Password', 'style': 'background-color: rgba(73, 80, 87, 0.1)'}),
     )
