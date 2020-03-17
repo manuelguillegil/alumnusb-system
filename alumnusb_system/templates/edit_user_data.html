@@ -7,9 +7,7 @@
 {% block content %}
 <div class="masthead">
   <div class="container bg-white d-flex flex-column rounded shadow-lg">
-    <br>
-    <br>
-    <h1 class="masthead-heading text-uppercase text-center text-secondary mb-0">Edit user info</h1>
+    <h1 class="masthead-heading text-uppercase text-center text-secondary mb-0 mt-5">Editar información de usuario</h1>
     
     <!-- Icon Divider -->
     <div class="divider-custom">
@@ -30,7 +28,7 @@
               <div class="form-group floating-label-form-group-edit controls mb-0 pb-2">
                 {{ field.label_tag }} 
                 
-                {{ field |attr:"class:form-control"|attr:"placeholder:Information"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
+                {{ field }}
                 
                 {% if field.help_text %}
                   <p class="help-block">{{ field.help_text|safe }}</p>
@@ -39,12 +37,11 @@
               </div>
             </div>
           {% endfor %}
-          <br>
-          <div class="form-group text-center">
+
+          <div class="form-group text-center mt-3 mb-3">
             <button type="submit" class="btn btn-outline-al btn-xl">Save</button>
           </div>
         </form>
-        <br>
       </div>
     </div>
   </div>

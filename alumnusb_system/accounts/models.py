@@ -77,9 +77,9 @@ class User_stats(models.Model):
 	Smallest_gift = models.FloatField()
 	Total_gifts = models.FloatField()
 	Best_gift_year_total = models.FloatField()
-	Best_gift_year = models.IntegerField()
-	First_gift_date = models.DateField()
-	Last_gift_date = models.DateField()
+	Best_gift_year = models.IntegerField(null=True)
+	First_gift_date = models.DateField(null=True)
+	Last_gift_date = models.DateField(null=True)
 	Total_number_of_gifts = models.IntegerField()
 
 	def __str__(self):

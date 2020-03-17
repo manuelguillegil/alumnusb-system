@@ -28,8 +28,7 @@ def dashboard(request, username):
     user_info = get_object_or_404(User_information,  Email=usr.email)
 
     #Try to get the user stats:
-    #usr_stats = get_object_or_404(User_stats, Email=usr.email)
-    
+    usr_stats = get_object_or_404(User_stats, Email=usr.email)
 
     if request.method == 'POST':
         
@@ -39,6 +38,30 @@ def dashboard(request, username):
             return redirect('user_data')  
     else:
         form = EditUserDataForm(instance=user_info)
+    return render(request, 'dashboard/index.html', {'User_information': user_info, 'form': form, 'stat':usr_stats})
+
+@login_required
+def user_stats(request, username):
+    #Check the username and the loged user
+    if request.user.username != username:
+        return redirect('home')
+    
+    #try to get the user data if exists
+    usr = get_object_or_404(User, username=username)
+    user_info = get_object_or_404(User_information,  Email=usr.email)
+
+    #Try to get the user stats:
+    usr_stats = get_object_or_404(User_stats, Email=usr.email)
+
+    if request.method == 'POST':
+        
+        form = EditUserDataForm(request.POST, instance=user_info)
+        if form.is_valid():
+            form.save()
+            return redirect('user_data')  
+    else:
+        form = EditUserDataForm(instance=user_info)
+
     return render(request, 'dashboard/index.html', {'User_information': user_info, 'form': form})
 
 
@@ -129,3 +152,22 @@ def achievements(request, username):
     args = {'ach1': ans1, 'ach2': ans2, 'ach3': ans3, 'ach4': ans4, 'ach5': ans5}
 
     return render(request, 'achievements.html', args)
+
+@login_required
+def user_achievs(request, username):
+
+    if request.user.username != username:
+        return redirect('home')
+
+    usr = get_object_or_404(User, username=username)
+    user_info = get_object_or_404(User_information,  Email=usr.email)
+
+    if request.method == 'POST':
+        form = EditUserDataForm(request.POST, instance=user_info)
+        if form.is_valid():
+            form.save()
+            return redirect('user_data')  
+    else:
+        form = EditUserDataForm(instance=user_info)
+    return render(request, 'dashboard/user_achievements.html', {'User_information': user_info, 'form': form})
+

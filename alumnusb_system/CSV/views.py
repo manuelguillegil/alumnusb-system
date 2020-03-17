@@ -12,7 +12,8 @@ def profile_upload(request):
 		template = "profile_upload.html"
 		data = alumncsv.objects.all()
 		prompt = {
-			'order': 'Order of the CSV should be Account ID, First Name, Middle Name, Last Name, Mailing City, Mailing State/Province, USB Alumn, Codigo AlumnUSB, Mailing Country, Email, Mobile, Cohorte, Birthdate, Age, Undergrad Degree, Graduate Degree, Carnet, USB Undergrad Campus, Graduate Campus, Work Email, Workplace, Donor, Average Gift, Largest Gift, Smallest Gift, Total Gifts, Best Gift Year Total, Best Gift Year, Social Networks, Twitter Account, Instagram Account, First Gift Date, Last Gift Date, Total Number of Gifts'
+			'title': 'El orden del CSV deberia ser',
+			'info': 'Account ID -> First Name -> Middle Name -> Last Name -> Mailing City -> Mailing State/Province -> USB Alumn -> Codigo AlumnUSB -> Mailing Country -> Email -> Mobile -> Cohorte -> Birthdate -> Age -> Undergrad Degree -> Graduate Degree -> Carnet -> USB Undergrad Campus -> Graduate Campus -> Work Email -> Workplace -> Donor -> Average Gift -> Largest Gift -> Smallest Gift -> Total Gifts -> Best Gift Year Total -> Best Gift Year -> Social Networks -> Twitter Account -> Instagram Account -> First Gift Date -> Last Gift Date -> Total Number of Gifts'
 				  }
 	
 		if request.method == "GET":

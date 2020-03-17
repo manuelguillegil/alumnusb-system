@@ -1,0 +1,32 @@
+
+<!--
+    The following variables must be provided:
+        modalName: required by the button that triggers this modal
+        modalColor: selects a color for this modal
+        modalTitle: Title of this modal
+        modalDescription: descripción de este modal
+        iconName: un ícono opcional que se muerta junto al título
+
+-->
+
+<!-- Logout Modal-->
+<div class="modal fade" id="{{modalName}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-{{modalColor}}" id="exampleModalLabel"> 
+              {{modalTitle}} 
+              <i class="fas fa-{{modalIconName}}"></i>
+            </h5>
+          
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body"> {{modalDescription}} </div>
+        <div class="modal-footer">
+          <button class="btn btn-{{modalColor}}" type="button" data-dismiss="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,68 +1,61 @@
-{% extends 'base.html' %}
+{% extends 'base_card.html' %}
 
+{% load static %}
 {% load widget_tweaks %}
 
-{% block title %} Login User {% endblock %}
+{% block title %} Ingreso de usuario {% endblock %}
 
-{% block content %}
-<div class="row justify-content-center bg-fourth">
-  <div class="masthead col-xl-10 col-lg-12 col-md-9">
-    <div class="card o-hidden shadow-lg border-0">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-6 d-none d-lg-block bg-login-image rounded"></div>
-          <div class="col-lg-6">
-            <br>
-            <br>
-            <!-- Masthead Heading -->
-            <h1 class="masthead-heading text-uppercase text-center text-secondary mb-0">Log in into your account</h1>
-          
-            <!-- Icon Divider -->
-            <div class="divider-custom">
-              <div class="divider-custom-line"></div>
-              <div class="divider-custom-icon">
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="divider-custom-line"></div>
-            </div>
+{% block first_col %}
 
-            <div class="row">
-            <div class="col-lg-8 mx-auto">
+  <figure class="p-3">
+    <img class="img-fluid rounded p-0 justify-content-between" src="{% static 'img/jardines.jpg' %}" alt="">
+  </figure>
+  <a href="{% url 'register_url' %}">
+  <h3 class="text-uppercase text-center text-secondary mt-4 mb-0"> ¿Todavía no tienes una cuenta? </h3>
+  </a>
+{% endblock first_col %}
 
-              <form name="sentMessage" id="loginUser" novalidate="novalidate" method="POST">
-                {% csrf_token %}
-                {{ form.non_field_errors }}
+{% block form_title %} <div class="mr-3">Inicia sesión en tu cuenta</div>  {% endblock %}
 
-                <div class="fieldWrapper">
-                  <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                    {{ form.username.errors }}
-                    {{ form.username.label_tag }}
-                    {{ form.username|attr:"class:form-control"|attr:"placeholder:Username"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
-                  </div>
-                </div>
+{% block decorator %}
+  <div class="divider-custom">
+    <div class="divider-custom-line"></div>
+    <div class="divider-custom-icon">
+      <i class="fas fa-star"></i>
+    </div>
+    <div class="divider-custom-line"></div>
+  </div>
+{% endblock decorator %}
 
-                <div class="fieldWrapper">
-                  <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                    {{ form.password.errors }}
-                    {{ form.password.label_tag }}
-                    {{ form.password|attr:"class:form-control"|attr:"placeholder:Password"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
-                  </div>
-                </div>
-                <!-- Gris de antes rgba(73, 80, 87, 0.1) -->
+{% block second_col %}
+<div class="row">
+  <div class="col-lg-8 mx-auto ">
 
-                <br>
-                <div id="success"></div>
-                <div class="form-group text-center">
-                  <button type="submit" class="btn btn-outline-al btn-xl" id="sendMessageButton">Enter</button>
-                </div>
-              </form>
-              <br>
-            </div>
-          </div>
+    <form name="sentMessage" id="loginUser" novalidate="novalidate" method="POST">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <div class="fieldWrapper">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+          {{ form.username.errors }}
+          {{ form.username.label_tag }}
+          {{ form.username|attr:"class:form-control rounded"|attr:"placeholder:Usuario"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
         </div>
       </div>
+
+      <div class="fieldWrapper">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+          {{ form.password.errors }}
+          {{ form.password.label_tag }}
+          {{ form.password|attr:"class:form-control rounded"|attr:"placeholder:Contraseña"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
+        </div>
       </div>
-    </div>
+
+      <div id="success"></div>
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-outline-al btn-xl mt-3 mb-3" id="sendMessageButton">Entrar</button>
+      </div>
+    </form>
   </div>
 </div>
-{% endblock content %}
+{% endblock second_col %}
