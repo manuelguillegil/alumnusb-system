@@ -6471,6 +6471,16 @@ button.bg-dark:focus {
   background-color: #42444e !important;
 }
 
+.bg-purple {
+  background-color: var(--purple) !important;
+}
+
+a.bg-purple:hover, a.bg-purple:focus,
+button.bg-purple:hover,
+button.bg-purple:focus {
+  background-color: #2653d4 !important;
+}
+
 .bg-white {
   background-color: #fff !important;
 }
