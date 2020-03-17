@@ -4,10 +4,18 @@
 	<title>pruebas</title>
 </head>
 <body>
-	{% for p in ret %}
-		<h1>{{p.Name}}</h1>
-		<h4>{{p.Description}}</h4>
-		<img src="../{{p.Picture.url}}">
+	<h1>hola</h1>
+	{% for p in achiev %}
+
+		<h1>{{p.0.Name}}</h1>
+		<h4>{{p.0.Description}}</h4>
+		<h5>{{p.0.Picture.url}}</h5>
+		<img src="{{ p.3 }}">
+
+		{% if p.2 %}
+			{{ p.1 }}
+			<h1>got it</h1>
+		{% endif %}
 	{% endfor %}
 </body>
 </html>
