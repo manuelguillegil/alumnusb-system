@@ -51,6 +51,7 @@ class User_stats(models.Model):
 class Achievements(models.Model):
 	Name = models.CharField(max_length=30)
 	Description = models.CharField(max_length=200)
+	Picture = models.ImageField(default='static/achiev_img/C.png', upload_to='static/achiev_img/') 
 
 	def __str__(self):
 		return self.Name
