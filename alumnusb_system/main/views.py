@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login
 
-from accounts.models import User_information, User_stats
+from accounts.models import User_information, User_stats, Achievements, User_Achievements
 from accounts.forms import SignUpForm, EditUserDataForm, getUserDataForm
 from django.contrib.auth.views import LoginView
 
@@ -66,6 +66,32 @@ def user_stats(request, username):
 
 
 def achievements(request, username):
+
+    #Check the username and the loged user
+    if request.user.username != username:
+        return redirect('home')
+    
+    #try to get the user data if exists
+    usr = get_object_or_404(User, username=username)
+
+    #Try to get the user stats:
+    usr_stats = get_object_or_404(User_stats, Email=usr.email)
+
+    ret = Achievements.objects.all()
+
+    for achiev in ret:
+        if (achiev.Name == 'Total donaciones bronce'):
+            user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.name)
+            if user_ach is None:
+                n = usr_stats.Total_gifts
+                if ( n != None and n>=5 ):
+                    new = User_Achievements(Owner=usr.id,Achievement=achiv.name)
+                    new.save()
+                
+
+
+    return render(request, 'achievements2.html', {'ret':ret})
+
 
     #Check the username and the loged user
     if request.user.username != username:

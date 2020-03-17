@@ -49,16 +49,15 @@ class User_stats(models.Model):
 		return self.Email
 
 class Achievements(models.Model):
-	Name = models.CharField(max_length=30)
+	Name = models.CharField(primary_key=True, max_length=50)
 	Description = models.CharField(max_length=200)
 	Picture = models.ImageField(default='static/achiev_img/C.png', upload_to='static/achiev_img/') 
 
-	def __str__(self):
-		return self.Name
+	
 
 class User_Achievements(models.Model):
-	Owner = models.ForeignKey(User,on_delete=models.CASCADE)
-	Achievement = models.ForeignKey(Achievements,on_delete=models.CASCADE,)
+	Owner = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
+	Achievement = models.ForeignKey(Achievements,on_delete=models.CASCADE,default=None)
 	Date = models.DateField(auto_now_add=True)
 
 	# Falta definir un __str__

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pruebas</title>
+</head>
+<body>
+	{% for p in ret %}
+		<h1>{{p.Name}}</h1>
+		<h4>{{p.Description}}</h4>
+		<img src="../{{p.Picture.url}}">
+	{% endfor %}
+</body>
+</html>

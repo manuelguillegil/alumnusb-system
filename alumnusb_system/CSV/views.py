@@ -10,7 +10,6 @@ from django.shortcuts import redirect, get_object_or_404
 def profile_upload(request):
 	if ( request.user.is_authenticated and request.user.is_staff):    
 		template = "profile_upload.html"
-		data = alumncsv.objects.all()
 		prompt = {
 			'title': 'El orden del CSV deberia ser',
 			'info': 'Account ID -> First Name -> Middle Name -> Last Name -> Mailing City -> Mailing State/Province -> USB Alumn -> Codigo AlumnUSB -> Mailing Country -> Email -> Mobile -> Cohorte -> Birthdate -> Age -> Undergrad Degree -> Graduate Degree -> Carnet -> USB Undergrad Campus -> Graduate Campus -> Work Email -> Workplace -> Donor -> Average Gift -> Largest Gift -> Smallest Gift -> Total Gifts -> Best Gift Year Total -> Best Gift Year -> Social Networks -> Twitter Account -> Instagram Account -> First Gift Date -> Last Gift Date -> Total Number of Gifts'
