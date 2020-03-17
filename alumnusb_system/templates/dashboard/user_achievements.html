@@ -8,4 +8,93 @@
 {% block content %}
 
 
+<div class="container-fluid">
+        
+    <!--Row: info -->
+    <div class="row ml-2 mr-2">
+       <!-- Approach -->
+       <div class="card shadow mb-4 p-2">
+           <div class="card-header py-3">
+               <h6 class="m-0 font-weight-bold text-warning">Acerca de mis logros</h6>
+           </div>
+           <div class="row m-1">
+               <div class="col-6 p-4 text-center">
+                   <i class="fas fa-medal fa-10x text-yellow"></i>
+               </div>
+               <div class="col-6 card-body font-weight-bold">
+                   <p> En esta página pordras ver tus logros y todo lo que hay por descubrir. Fija tus metas y consigue todo lo que te propongas. </p>
+                   <p class="mb-0"> ¡Hay mucho por hacer! </p>
+               </div>
+           </div>
+         </div>
+     </div>
+   
+   
+     <div class="row content-row">
+   
+       <!-- Achieved -->
+       <div class="col-xl-6 col-lg-6">
+         <div class="card shadow mb-4">
+           <!-- Card Header-->
+           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-success text-light">
+               
+                <h5 class="m-0 font-weight-bold float-left">Logros conseguidos</h5>
+                <div class="float-right" type="button" data-toggle="collapse" data-target="#earnedAchievs" 
+                     aria-expanded="true" aria-controls="earnedAchievs">
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                
+           </div>
+           <!-- Card Body -->
+           <div class="card-body collapse show" id="earnedAchievs">
+                
+           </div>
+         </div>
+       </div>
+   
+       <!-- Not achieved -->
+        <div class="col-xl-6 col-lg-6">
+            <div class="card shadow mb-4">
+           <!-- Card Header-->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-warning text-light">
+                    <h5 class="m-0 font-weight-bold float-left">Logros pendientes</h5>
+
+                    <div class="float-right" type="button" data-toggle="collapse" data-target="#pendingAchievs" 
+                        aria-expanded="true" aria-controls="pendingAchievs">
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                    
+                    
+                </div>
+                <!-- Card Body -->
+                <div class="card-body collapse show" id="pendingAchievs">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card shadow mb-4">
+           <!-- Card Header-->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-purple text-light">
+                    <h5 class="m-0 font-weight-bold float-left">Todos los logros</h5>
+
+                    <div class="float-right" type="button" data-toggle="collapse" data-target="#allAchievs" 
+                        aria-expanded="true" aria-controls="allAchievs">
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                    
+                    
+                </div>
+                <!-- Card Body -->
+                <div class="card-body collapse show" id="allAchievs">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
 {% endblock %}
