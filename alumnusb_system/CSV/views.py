@@ -28,46 +28,8 @@ def profile_upload(request):
 		io_string = io.StringIO(data_set)
 		next(io_string)
 		for column in csv.reader(io_string, delimiter=',', quotechar="|"):
-			alumncsv.objects.filter(Email=column[9]).delete()
 			User_information.objects.filter(Email=column[9]).delete()
 			User_stats.objects.filter(Email=column[9]).delete()
-
-			created = alumncsv.objects.update_or_create(
-			Account_id=column[0],
-			First_name=column[1],
-			Middle_name=column[2],
-			Last_name=column[3],
-			Mailing_city=column[4],
-			Mailing_state=column[5],
-			USB_alumn=is_int(column[6]),
-			Codigo_Alumn_USB=column[7],
-			Mailing_country=column[8],
-			Email=column[9],
-			Mobile=column[10],
-			Cohorte=is_int(column[11]),
-			Birthdate=transform_date(column[12]),
-			Age=is_int(column[13]),
-			Undergrad_degree=column[14],
-			Graduate_degree=column[15],
-			Carnet=is_int(column[16]),
-			USB_undergrad_campus=column[17],
-			Graduate_campus=column[18],
-			Work_email=column[19],
-			Workplace=column[20],
-			Donor=is_int(column[21]),
-			Average_gift=is_float(column[22]),
-			Largest_gift=is_float(column[23]),
-			Smallest_gift=is_float(column[24]),
-			Total_gifts=is_float(column[25]),
-			Best_gift_year_total=is_float(column[26]),
-			Best_gift_year=is_int(column[27]),
-			Social_networks=column[28],
-			Twitter_account=column[29],
-			Instagram_account=column[30],
-			First_gift_date=transform_date(column[31]),
-			Last_gift_date=transform_date(column[32]),
-			Total_number_of_gifts=is_int(column[33])
-			)
 			
 			created2 = User_information.objects.update_or_create(
 			First_name=column[1],
@@ -75,7 +37,7 @@ def profile_upload(request):
 			Last_name=column[3],
 			Mailing_city=column[4],
 			Mailing_state=column[5],
-			USB_alumn=is_int(column[6]),
+			USB_alumn=is_bool(column[6]),
 			Codigo_Alumn_USB=column[7],
 			Email=column[9],
 			Mobile=column[10],
@@ -87,7 +49,7 @@ def profile_upload(request):
 			Graduate_campus=column[18],
 			Work_email=column[19],
 			Workplace=column[20],
-			Donor=is_int(column[21]),
+			Donor=is_bool(column[21]),
 			Social_networks=column[28],
 			Twitter_account=column[29],
 			Instagram_account=column[30]
@@ -127,3 +89,10 @@ def transform_date(x):
 	if (x==''):
 		return '2020-01-01'
 	return datetime.datetime.strptime(x, '%m/%d/%Y').strftime('%Y-%m-%d')
+
+def is_bool(x):
+	if (x=='1'):
+		return True
+	else:
+		return False
+	
