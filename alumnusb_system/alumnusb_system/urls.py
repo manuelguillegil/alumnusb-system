@@ -16,7 +16,7 @@ urlpatterns = [
     url(r'^dashboard/(?P<username>[\w.@+-]+)/$', views.dashboard, name = 'dashboard'),
     path('upload-csv/', profile_upload, name="profile_upload"),
     url(r'^dashboard/(?P<username>[\w.@+-]+)/$', views.dashboard, name = 'dashboard'),
-    url(r'^prueba_logros/(?P<username>[\w.@+-]+)/$', views.achievements, name = 'achievements')
+    url(r'^prueba_logros/(?P<username>[\w.@+-]+)/$', views.achievements, name = 'achievements'),
     url(r'^my_stats/(?P<username>[\w.@+-]+)/$', views.user_stats, name = 'my_stats'),
     url(r'^my_achievements/(?P<username>[\w.@+-]+)/$', views.user_achievs, name = 'my_achievs')
 ]

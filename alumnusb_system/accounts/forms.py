@@ -133,14 +133,10 @@ class EditUserDataForm(forms.ModelForm):
         choices=COUNTRIES,
     )
 
-    USB_alumn = forms.IntegerField(
+    USB_alumn = forms.BooleanField(
         label='Estudiante de la USB', 
         required=True,
-        widget=forms.NumberInput(attrs={'class': "form-control", 'placeholder': '1', 'style': 'background-color: rgba(233, 229, 200, 0.5)'}),
         error_messages={'required': 'Por favor ingresa si eres o no estudiantes de la USB.'},
-        min_value=0,
-        max_value=1,
-        help_text="Coloque 0 si NO es/era estudiantes de la USB, coloque 1 en caso contrario.",
     )
 
     Cohorte = forms.IntegerField(
@@ -209,14 +205,10 @@ class EditUserDataForm(forms.ModelForm):
         widget=forms.EmailInput(attrs={'class': "form-control", 'placeholder': 'info@example.com', 'style': 'background-color: rgba(233, 229, 200, 0.5)'}),
     )
 
-    Donor = forms.IntegerField(
+    Donor = forms.BooleanField(
         label='Donante recurrente', 
         required=True,
-        widget=forms.NumberInput(attrs={'class': "form-control", 'placeholder': '1', 'style': 'background-color: rgba(233, 229, 200, 0.5)'}),
         error_messages={'required': 'Por favor ingresa si eres o no donante recurrent en AlumnUSB.'},
-        min_value=0,
-        max_value=1,
-        help_text="Coloque 0 si NO eres donante recurrente en AlumnUSB, coloque 1 en caso contrario.",
     )
 
     Social_networks = forms.CharField(
