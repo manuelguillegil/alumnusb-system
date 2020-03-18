@@ -4,6 +4,24 @@
     color: Color theme of this item
 -->
 
-<div>
+<div class="row">
+    <div class="col-1">
+        <img src="{{ achiev.3 }}" alt="" class="img-fluid">
+    </div>
+
+    <div class="col-10 p-2">
+        <h3 class="text-gray-900 font-weight-bold">
+            {{achiev.0.Name}}
+            {% if achiev.2 %}
+            <i class="fas fa-medal"></i>
+            {% endif %}
+        </h3> 
+        <span> {{achiev.0.Description}} </span>
+    </div>
+
+    <div class="col-1">
+        {{achiev.0.Level}}
+    </div>
     
 </div>
+<hr>
