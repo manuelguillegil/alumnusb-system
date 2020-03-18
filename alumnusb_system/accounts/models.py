@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from accounts.utils import CountryField
 from accounts.utils import CampusChoice
 from accounts.utils import UndergraduateDegreeChoice
+from django.utils import timezone
+from datetime import date
 
 class User_information(models.Model):
 	First_name = models.CharField(max_length=30, default='-')
@@ -58,6 +60,6 @@ class Achievements(models.Model):
 class User_Achievements(models.Model):
 	Owner = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
 	Achievement = models.ForeignKey(Achievements,on_delete=models.CASCADE,default=None)
-	Date = models.DateField(auto_now_add=True)
+	Date = models.DateField(default=timezone.now)
 
 	# Falta definir un __str__

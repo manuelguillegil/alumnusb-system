@@ -528,7 +528,19 @@
   
   {% block cscripts %} 
   {% endblock %}
-
+  {% for p in ach_by_date %}
+    <h1>{{p.0.Name}}</h1>
+    <h4>{{p.0.Description}}</h4>
+    <h5>{{p.0.Picture.url}}</h5>
+    <h5>{{p.1}}</h5>
+    <img src="{{ p.2 }}" style="height:200px; width: 200px">
+  {% endfor %}
+  {% for p in ach_by_lvl %}
+    <h1>{{p.0.Name}}</h1>
+    <h4>{{p.0.Description}}</h4>
+    <h5>{{p.0.Picture.url}}</h5>
+    <img src="{{ p.1 }}" style="height:200px; width: 200px">
+  {% endfor %}
 </body>
 
 </html>
