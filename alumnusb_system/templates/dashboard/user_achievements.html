@@ -90,7 +90,30 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body collapse show" id="allAchievs">
+                    {% for t in achievs %}
+                    <div class="row">
+                        <div class="col-1">
+                            <img src="{{ t.3 }}" alt="" class="img-fluid">
+                        </div>
 
+                        <div class="col-10 p-2">
+                            <h3 class="text-gray-900 font-weight-bold">
+                                {{t.0.Name}}
+                                {% if t.2 %}
+                                <i class="fas fa-medal"></i>
+                                {% endif %}
+                            </h3> 
+                            <span> {{t.0.Description}} </span>
+                        </div>
+
+                        <div class="col-1">
+
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    {% endfor %}
+                    
                 </div>
             </div>
         </div>
