@@ -60,6 +60,9 @@ def achievements(request, username):
     #Try to get the user stats:
     usr_stats = get_object_or_404(User_stats, Email=usr.email)
 
+    usr_info = get_object_or_404(User_information,  Email=usr.email)
+
+
     A = Achievements.objects.all()
 
     ret = [None for i in range(len(A))]
@@ -324,7 +327,7 @@ def achievements(request, username):
     for i in range(len(ret)):
         ret2.append( (ret[i][0], ret[i][1], ret[i][2], "../../" + ret[i][0].Picture.url) )
 
-    return render(request, 'achievements2.html', {'achiev':ret2})
+    return render(request, 'dashboard/user_achievements.html', {'achievs':ret2, 'user_stats':usr_stats, 'User_information':usr_info})
 
 @login_required
 def user_achievs(request, username):

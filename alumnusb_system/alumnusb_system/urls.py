@@ -22,5 +22,5 @@ urlpatterns = [
 
     url(r'^prueba_logros/(?P<username>[\w.@+-]+)/$', views.achievements, name = 'achievements'),
     url(r'^my_stats/(?P<username>[\w.@+-]+)/$', views.user_stats, name = 'my_stats'),
-    url(r'^my_achievements/(?P<username>[\w.@+-]+)/$', views.user_achievs, name = 'my_achievs')
+    url(r'^my_achievements/(?P<username>[\w.@+-]+)/$', views.achievements, name = 'my_achievs')
 ]
