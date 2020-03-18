@@ -327,7 +327,7 @@ def achievements(request, username):
     for i in range(len(ret)):
         ret2.append( (ret[i][0], ret[i][1], ret[i][2], "../../" + ret[i][0].Picture.url) )
 
-    return render(request, 'dashboard/user_achievements.html', {'achievs':ret2, 'user_stats':usr_stats, 'User_information':usr_info})
+    return render(request, 'achievements2.html', {'achievs':ret2, 'user_stats':usr_stats, 'User_information':usr_info})
 
 @login_required
 def user_achievs(request, username):

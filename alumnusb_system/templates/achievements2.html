@@ -5,7 +5,7 @@
 </head>
 <body>
 	<h1>hola</h1>
-	{% for p in achiev %}
+	{% for p in achievs %}
 
 		<h1>{{p.0.Name}}</h1>
 		<h4>{{p.0.Description}}</h4>
@@ -16,6 +16,7 @@
 			{{ p.1 }}
 			<h1>got it</h1>
 		{% endif %}
+		
 	{% endfor %}
 </body>
 </html>
