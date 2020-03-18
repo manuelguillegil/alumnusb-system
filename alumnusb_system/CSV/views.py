@@ -27,6 +27,10 @@ def profile_upload(request):
 		io_string = io.StringIO(data_set)
 		next(io_string)
 		for column in csv.reader(io_string, delimiter=',', quotechar="|"):
+			if ( len(column) < 34 ):
+				error = len(column)
+				return render(request, template, {'title':error})
+			
 			User_information.objects.filter(Email=column[9]).delete()
 			User_stats.objects.filter(Email=column[9]).delete()
 			
@@ -66,8 +70,7 @@ def profile_upload(request):
 			Last_gift_date=transform_date(column[32]),
 			Total_number_of_gifts=is_int(column[33])
 			)
-		context = {}
-		return render(request, template, context)
+		return render(request, template, {'title':"La carga fue exitosa"})
 	else:
 		return redirect('home')
 
