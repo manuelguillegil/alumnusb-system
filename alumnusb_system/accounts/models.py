@@ -63,3 +63,8 @@ class User_Achievements(models.Model):
 	Date = models.DateField(default=timezone.now)
 
 	# Falta definir un __str__
+
+class Message(models.Model):
+	Page = models.CharField(max_length=30, primary_key=True)
+	Title = models.CharField(max_length=50,default=' ')
+	Txt = models.CharField(max_length=2000,default=' ')
