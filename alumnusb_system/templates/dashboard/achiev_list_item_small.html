@@ -11,25 +11,25 @@
     5: danger
 -->
 
-{% with  strid=id|stringformat:"i"%}
-    {% with modalId="achievItemModal"|add:strid%}
+    {% with modalId="achievItemModal"|add:id%}
 <div class="row  my-2 rounded">
-    <div class="col-xl-1 col-lg-1 col-sm-3">
+    <div class="col-3">
         <img src="{{ achiev.3 }}" alt="" class="img-fluid">
     </div>
 
-    <div class="col-xl-9 col-lg-9 col-sm-5 p-2" >
+    <div class="col-5 p-2" >
         
         <!--Title-->
-        <div class="float-lg-left float-xl-left">
+        <div class="mb-2">
             <a class="" href="#" data-toggle="modal" data-target="#{{modalId}}"
                style="text-decoration: none;">
-                <h3 class="text-gray-800 font-weight-bold text-{{color}}">
+                <h4 class="text-gray-800 font-weight-bold text-{{color}}">
                     {{achiev.0.Name}}  
                     {% if achiev.2 %}
                         <i class="fas fa-medal"></i>
                     {% endif %}
-                </h3> 
+                </h4> 
+
             </a>
             <!--Description-->
             {% if  achiev.0.Description|length == 0 %}
@@ -42,24 +42,24 @@
         </div>
 
         <!--Level Badge-->
-        <div class="float-lg-right float-xl-right">
+        <div class="">
             {% if achiev.0.Level == 1 %}
-            <span class="badge-primary rounded p-1"> Level 1  </span>
+            <span class="badge-primary rounded p-1 my-6"> Level 1  </span>
             {% elif achiev.0.Level == 2 %}
-            <span class="badge-info rounded p-1"> Level 2  </span>
+            <span class="badge-info rounded p-1 my-6"> Level 2  </span>
             {% elif achiev.0.Level == 3 %}
-            <span class="badge-warning rounded p-1"> Level 3  </span>
+            <span class="badge-warning rounded p-1 my-6"> Level 3  </span>
             {% elif achiev.0.Level == 4 %}
-            <span class="badge-purple rounded p-1"> Level 4  </span>
+            <span class="badge-purple rounded p-1 my-6"> Level 4  </span>
             {% elif achiev.0.Level == 5 %}
-            <span class="badge-danger rounded p-1"> Level 5  </span>
+            <span class="badge-danger rounded p-1 my-6"> Level 5  </span>
             {% endif %}
         </div>
         
 
     </div>
 
-    <div class="col-xl-2 col-lg-2 col-sm-4">
+    <div class="col-4">
         <!--If achievement earned:-->
         {% if achiev.2 %}
         Adquirido: {{achiev.1}}
@@ -71,4 +71,3 @@
         
         {% include 'dashboard/achiev_item_modal.html' with id=modalId mAchiev=achiev%}
     {% endwith %}
-{% endwith %}

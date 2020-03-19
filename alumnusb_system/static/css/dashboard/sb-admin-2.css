@@ -3,6 +3,7 @@
   --blue: #4e73df;
   --indigo: #6610f2;
   --purple: #6f42c1;
+  --dark-purple: #6444a0;
   --pink: #e83e8c;
   --red: #e74a3b;
   --orange: #fd7e14;
@@ -5016,6 +5017,21 @@ a.badge-dark:hover, a.badge-dark:focus {
 a.badge-dark:focus, a.badge-dark.focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(90, 92, 105, 0.5);
+}
+
+.badge-purple {
+  color: #fff;
+  background-color: var(--purple);
+}
+
+a.badge-primary:hover, a.badge-primary:focus {
+  color: #fff;
+  background-color: var(--dark-purple);
+}
+
+a.badge-primary:focus, a.badge-primary.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.5);
 }
 
 .jumbotron {

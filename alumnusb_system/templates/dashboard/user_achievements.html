@@ -47,7 +47,13 @@
            </div>
            <!-- Card Body -->
            <div class="card-body collapse show" id="earnedAchievs">
-                
+                {% for t in achievs %}
+                    {% if t.2 %}
+                        {% with strid=forloop.counter|stringformat:"i" %}
+                            {% include 'dashboard/achiev_list_item_small.html' with achiev=t color="" id="earned"|add:strid %}
+                        {% endwith %}
+                    {% endif %}
+                {% endfor  %}
            </div>
          </div>
        </div>
@@ -64,11 +70,16 @@
                         <i class="fas fa-caret-down"></i>
                     </div>
                     
-                    
                 </div>
                 <!-- Card Body -->
                 <div class="card-body collapse show" id="pendingAchievs">
-
+                {% for t in achievs %}
+                    {% if not t.2 %}
+                        {% with strid=forloop.counter|stringformat:"i" %}
+                            {% include 'dashboard/achiev_list_item_small.html' with achiev=t color="" id="notearned"|add:strid %}
+                        {% endwith %}
+                    {% endif %}
+                {% endfor  %}
                 </div>
             </div>
         </div>
