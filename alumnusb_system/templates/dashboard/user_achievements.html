@@ -76,6 +76,7 @@
 
     <div class="row">
         <div class="col">
+            <!--All achievs card-->
             <div class="card shadow mb-4">
            <!-- Card Header-->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-purple text-light">
@@ -91,7 +92,12 @@
                 <!-- Card Body -->
                 <div class="card-body collapse show" id="allAchievs">
                     {% for t in achievs %}
-                    {% include 'dashboard/achiev_list_item.html' with achiev=t %}
+
+                    {% include 'dashboard/achiev_list_item.html' with achiev=t color="" id=forloop.counter %}
+
+                    {% empty %}
+                    <span>¡Vaya! Parece que todavía no hay logros por ganar</span>
+
                     {% endfor %}
                     
                 </div>

@@ -13,14 +13,14 @@
   --white: #fff;
   --gray: #858796;
   --gray-dark: #5a5c69;
-  --primary: Black;
+  --primary: rgb(15, 15, 15);
   --secondary: #858796;
   --success: #1cc88a;
   --info: #36b9cc;
   --warning: #f6c23e;
   --danger: #e74a3b;
   --light: #f8f9fc;
-  --dark: #5a5c69;
+  --dark: #0d0d0e;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -6462,7 +6462,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #5a5c69 !important;
+  background-color: var(--dark) !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -10022,12 +10022,20 @@ a:focus {
   justify-content: center;
 }
 
+.border-primary {
+  border: 0.25rem solid var(--primary) !important;
+}
+
 .border-left-primary {
   border-left: 0.25rem solid var(--primary) !important;
 }
 
 .border-bottom-primary {
   border-bottom: 0.25rem solid var(--primary) !important;
+}
+
+.border-secondary {
+  border: 0.25rem solid var(--secondary) !important;
 }
 
 .border-left-secondary {
@@ -10038,12 +10046,20 @@ a:focus {
   border-bottom: 0.25rem solid var(--secondary) !important;
 }
 
+.border-success {
+  border: 0.25rem solid var(--success) !important;
+}
+
 .border-left-success {
   border-left: 0.25rem solid #1cc88a !important;
 }
 
 .border-bottom-success {
   border-bottom: 0.25rem solid #1cc88a !important;
+}
+
+.border-info {
+  border: 0.25rem solid var(--info) !important;
 }
 
 .border-left-info {
@@ -10054,12 +10070,20 @@ a:focus {
   border-bottom: 0.25rem solid #36b9cc !important;
 }
 
+.border-warning {
+  border: 0.25rem solid var(--warning) !important;
+}
+
 .border-left-warning {
   border-left: 0.25rem solid #f6c23e !important;
 }
 
 .border-bottom-warning {
   border-bottom: 0.25rem solid #f6c23e !important;
+}
+
+.border-danger {
+  border: 0.25rem solid var(--danger) !important;
 }
 
 .border-left-danger {
@@ -10086,6 +10110,10 @@ a:focus {
   border-bottom: 0.25rem solid #5a5c69 !important;
 }
 
+.border-yellow {
+  border: 0.25rem solid var(--yellow) !important;
+}
+
 .border-left-yellow {
   border-left: 0.25rem solid var(--yellow) !important;
 }
@@ -10108,6 +10136,10 @@ a:focus {
 
 .border-bottom-green {
   border-bottom: 0.25rem solid var(--green) !important;
+}
+
+.border-purple {
+  border: 0.25rem solid var(--purple) !important;
 }
 
 .border-left-purple {
