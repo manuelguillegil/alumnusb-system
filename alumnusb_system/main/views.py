@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login
 
-from accounts.models import User_information, User_stats, Achievements, User_Achievements
+from accounts.models import User_information, User_stats, Achievements, User_Achievements, Message
 from accounts.forms import SignUpForm, EditUserDataForm, getUserDataForm
 from django.contrib.auth.views import LoginView
 
@@ -30,7 +30,37 @@ def dashboard(request, username):
     #Try to get the user stats:
     usr_stats = get_object_or_404(User_stats, Email=usr.email)
 
-    return render(request, 'dashboard/index.html', {'User_information': user_info, 'stat':usr_stats})
+    ach = Achievements.objects.all()
+
+    ach_by_date = []
+    ach_by_lvl = []
+
+    for x in ach:
+        if User_Achievements.objects.filter(Owner=usr.id,Achievement=x.Name).exists():
+            y = User_Achievements.objects.get(Owner=usr.id,Achievement=x.Name)
+            ach_by_date.append( (x,y.Date, "../../" + x.Picture.url) )
+            ach_by_lvl.append( (x, "../../" + x.Picture.url) )
+        
+    ach_by_date.sort(key=lambda x:x[1], reverse=True)
+    ach_by_lvl.sort(key=lambda x:x[0].Level, reverse=True)
+
+    ach_by_date = ach_by_date[:10]
+    ach_by_lvl = ach_by_lvl[:10]
+
+    if Message.objects.filter(Page='Resumen').exists():
+        msg = Message.objects.get(Page='Resumen')
+    else:
+        msg = None
+
+    args = {
+                'User_information': user_info,
+                'stat': usr_stats,
+                'ach_by_date':ach_by_date,
+                'ach_by_lvl':ach_by_lvl,
+                'msg':msg
+            }
+
+    return render(request, 'dashboard/index.html', args)
 
 @login_required
 def user_stats(request, username):
@@ -45,7 +75,12 @@ def user_stats(request, username):
     #Try to get the user stats:
     usr_stats = get_object_or_404(User_stats, Email=usr.email)
 
-    return render(request, 'dashboard/user_stats.html', {'User_information': user_info, 'stat': usr_stats})
+    args = {
+                'User_information': user_info,
+                'stat': usr_stats
+            }
+
+    return render(request, 'dashboard/user_stats.html', args)
 
 
 def achievements(request, username):
@@ -324,10 +359,17 @@ def achievements(request, username):
                 ret[16] =( (achiev, user_ach.Date, True) )
 
     ret2 = []
+
     for i in range(len(ret)):
         ret2.append( (ret[i][0], ret[i][1], ret[i][2], "../../" + ret[i][0].Picture.url) )
 
-    return render(request, 'dashboard/user_achievements.html', {'achievs':ret2, 'user_stats':usr_stats, 'User_information':usr_info})
+    args = {
+                'achievs':ret2,
+                'user_stats':usr_stats, 
+                'User_information':usr_info
+            }
+
+    return render(request, 'dashboard/user_achievements.html', args)
 
 @login_required
 def user_achievs(request, username):

@@ -89,10 +89,12 @@ ach15 = Achievements(Name='Donacion estrella diamante',
 ach15.Picture.save('max_don_diamante.png', File(open('static/achiev_img/max_don_diamante.png', 'rb')))
 
 ach16 = Achievements(Name='Donante',
-					Description='Realiza una donacion')
+					Description='Realiza una donacion',
+					Level=5)
 ach16.Picture.save('donante.png', File(open('static/achiev_img/donante.png', 'rb')))
 
 ach17 = Achievements(Name='Donante recurrente',
-					Description='Realiza una donacion de al menos 1000 dolares')
+					Description='Realiza una donacion de al menos 1000 dolares',
+					Level=5)
 ach17.Picture.save('recurrente.png', File(open('static/achiev_img/recurrente.png', 'rb')))
 
