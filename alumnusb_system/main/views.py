@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login
 
-from accounts.models import User_information, User_stats, Achievements, User_Achievements, Message
+from accounts.models import User_information, User_stats, Achievements, User_Achievements, Message, Profile_Picture
 from accounts.forms import SignUpForm, EditUserDataForm, getUserDataForm
 from django.contrib.auth.views import LoginView
 
@@ -44,8 +44,8 @@ def dashboard(request, username):
     ach_by_date.sort(key=lambda x:x[1], reverse=True)
     ach_by_lvl.sort(key=lambda x:x[0].Level, reverse=True)
 
-    ach_by_date = ach_by_date[:10]
-    ach_by_lvl = ach_by_lvl[:10]
+    ach_by_date = ach_by_date[:5]
+    ach_by_lvl = ach_by_lvl[:5]
 
     if Message.objects.filter(Page='Resumen').exists():
         msg = Message.objects.get(Page='Resumen')

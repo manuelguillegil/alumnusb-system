@@ -6,6 +6,9 @@ from accounts.utils import UndergraduateDegreeChoice
 from django.utils import timezone
 from datetime import date
 
+class Profile_Picture(models.Model):
+	Picture = models.ImageField(upload_to='static/prof_img/')
+
 class User_information(models.Model):
 	First_name = models.CharField(max_length=30, default='-')
 	Middle_name = models.CharField(max_length=30, default='-')
@@ -31,6 +34,7 @@ class User_information(models.Model):
 	Social_networks = models.CharField(max_length=50, default='-')
 	Twitter_account = models.CharField(max_length=60,default='-')
 	Instagram_account = models.CharField(max_length=60, default='-')
+	Picture = models.ForeignKey(Profile_Picture, on_delete=models.SET_NULL, null=True)
 
 	def __str__(self):
 		return self.Email
