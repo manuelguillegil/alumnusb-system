@@ -7,6 +7,7 @@ urlpatterns = [
 	url(r'^personal_data/(?P<username>[\w.@+-]+)/$', accounts_views.user_data, name = 'user_data'),
 
     url(r'^personal_data/edit/(?P<username>[\w.@+-]+)/$', accounts_views.edit_user_data, name = 'edit_user_data'),
+    url(r'^personal_data/edit_picture/(?P<username>[\w.@+-]+)/$', accounts_views.edit_user_picture, name = 'edit_user_picture'),
 
 	url(r'^login/', LoginView.as_view(), name = 'login_url'),
 

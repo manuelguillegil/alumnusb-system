@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login
 
-from .models import User_information, User_stats
-from .forms import SignUpForm, EditUserDataForm, getUserDataForm
+from .models import User_information, User_stats, Profile_Picture
+from .forms import SignUpForm, EditUserDataForm, getUserDataForm, pictureId
 from django.contrib.auth.views import LoginView
 
 @csrf_protect
@@ -63,11 +63,34 @@ def user_data(request, username):
     usr = get_object_or_404(User, username=username)
     user_info = get_object_or_404(User_information,  Email=usr.email)
 
-    if request.method == 'POST':
-        form = EditUserDataForm(request.POST, instance=user_info)
-        if form.is_valid():
-            form.save()
-            return redirect('user_data')  
+    if ( user_info.Picture != None ):
+        pic = Profile_Picture.objects.get(id=user_info.Picture.id)
+        ret_pic = ( "/"+ pic.Picture.url , True )
     else:
-        form = EditUserDataForm(instance=user_info)
-    return render(request, 'user_data.html', {'User_information': user_info, 'form': form})
+        ret_pic = ( "" , False )
+
+    return render(request, 'user_data.html', {'User_information': user_info, 'pic': ret_pic})
+
+@login_required
+def edit_user_picture(request, username):
+
+    if request.user.username != username:
+        return redirect('home')
+    
+    usr = get_object_or_404(User, username=username)
+    user_info = get_object_or_404(User_information,  Email=usr.email)
+
+    if request.method == 'POST':
+        form = pictureId(request.POST)
+        pic_id = form.data['Pic_id']
+        if Profile_Picture.objects.filter(id=pic_id).exists():
+            pic = Profile_Picture.objects.get(id=pic_id)
+            user_info.Picture = pic
+            user_info.save()
+            return redirect('user_data', request.user.username)  
+        else:
+            form = pictureId()
+    else:
+        form = pictureId()
+
+    return render(request, 'edit_user_picture.html', {'form': form})

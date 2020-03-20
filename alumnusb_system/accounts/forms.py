@@ -292,3 +292,6 @@ class getUserDataForm(forms.ModelForm):#UserChangeForm):
             'Twitter_account',
             'Instagram_account'
         )
+
+class pictureId(forms.Form):
+    Pic_id = forms.IntegerField()
