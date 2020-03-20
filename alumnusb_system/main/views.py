@@ -100,7 +100,7 @@ def achievements(request, username):
 
     A = Achievements.objects.all()
 
-    ret = [None for i in range(len(A))]
+    ret = []
 
     for achiev in A:
 
@@ -111,12 +111,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[0] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[0] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[0] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
         elif (achiev.Name == 'Numero donaciones plata'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
@@ -125,12 +125,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[1] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[1] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[1] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
         elif (achiev.Name == 'Numero donaciones oro'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
@@ -139,12 +139,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[2] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[2] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[2] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
         elif (achiev.Name == 'Numero donaciones platino'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
@@ -153,12 +153,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[3] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[3] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[3] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
         elif (achiev.Name == 'Numero donaciones diamante'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
@@ -167,12 +167,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[4] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[4] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[4] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
 
         elif (achiev.Name == 'Total donaciones bronce'):
@@ -182,12 +182,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[5] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[5] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[5] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
         elif (achiev.Name == 'Total donaciones plata'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
@@ -196,12 +196,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[6] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[6] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[6] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
         elif (achiev.Name == 'Total donaciones oro'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
@@ -210,12 +210,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[7] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[7] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[7] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
         elif (achiev.Name == 'Total donaciones platino'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
@@ -224,12 +224,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[8] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[8] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[8] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
         elif (achiev.Name == 'Total donaciones diamante'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
@@ -238,12 +238,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[9] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[9] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[9] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
 
         elif (achiev.Name == 'Donacion estrella bronce'):
@@ -253,12 +253,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[10] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[10] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[10] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
         elif (achiev.Name == 'Donacion estrella plata'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
@@ -267,12 +267,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[11] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[11] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[11] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
         elif (achiev.Name == 'Donacion estrella oro'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
@@ -281,12 +281,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[12] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[12] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[12] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
         elif (achiev.Name == 'Donacion estrella platino'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
@@ -295,12 +295,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[13] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[13] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[13] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
         elif (achiev.Name == 'Donacion estrella diamante'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
@@ -309,12 +309,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[14] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[14] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[14] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
 
         elif (achiev.Name == 'Donante'):
@@ -324,12 +324,12 @@ def achievements(request, username):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                    ret[15] =( (achiev, user_ach.Date, True) )
+                    ret.append( (achiev, user_ach.Date, True) )
                 else:
-                    ret[15] =( (achiev, None, False) )
+                    ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[15] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
 
         elif (achiev.Name == 'Donante recurrente'):
@@ -351,17 +351,19 @@ def achievements(request, username):
                         new = User_Achievements(Owner=usr,Achievement=achiev)
                         new.save()
                         user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                        ret[16] =( (achiev, user_ach.Date, True) )
+                        ret.append( (achiev, user_ach.Date, True) )
                     else:
-                        ret[16] =( (achiev, None, False) )
+                        ret.append( (achiev, None, False) )
             else:
                 user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
-                ret[16] =( (achiev, user_ach.Date, True) )
+                ret.append( (achiev, user_ach.Date, True) )
 
     ret2 = []
 
     for i in range(len(ret)):
         ret2.append( (ret[i][0], ret[i][1], ret[i][2], "../../" + ret[i][0].Picture.url) )
+
+    ret2.sort(key=lambda x:x[0].Level, reverse=True)
 
     args = {
                 'achievs':ret2,
