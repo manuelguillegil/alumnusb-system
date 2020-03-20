@@ -1,0 +1,25 @@
+{% load static %}
+<!--
+    Variables required by this template:
+        achiev: the achievement being rendered
+-->
+<div class="col-lg-6 mb-4">
+    {% if achiev.0.Level == 1 %}
+    <div class="card bg-primary text-white shadow">
+    {% elif achiev.0.Level == 2 %}
+    <div class="card bg-info text-white shadow">
+    {% elif achiev.0.Level == 3 %}
+    <div class="card bg-warning text-white shadow">
+    {% elif achiev.0.Level == 4 %}
+    <div class="card bg-purple text-white shadow">
+    {% elif achiev.0.Level == 5 %}
+    <div class="card bg-danger text-white shadow">
+    {% endif %}
+        <div class="card-body">
+            <a href="{% url 'my_achievs' user.username %}" style="text-decoration: none;" class="text-light">
+                <strong> {{achiev.0.Name}} </strong>
+            </a>
+            <div class="text-white-50 small"> Nivel: {{achiev.0.Level}} </div>
+        </div>
+    </div>
+</div>
