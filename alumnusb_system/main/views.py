@@ -149,7 +149,7 @@ def achievements(request, username):
         elif (achiev.Name == 'Numero donaciones platino'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
                 n = usr_stats.Total_number_of_gifts
-                if ( n is not None and n>=30 ):
+                if ( n is not None and n>=50 ):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
@@ -163,7 +163,7 @@ def achievements(request, username):
         elif (achiev.Name == 'Numero donaciones diamante'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
                 n = usr_stats.Total_number_of_gifts
-                if ( n is not None and n>=50 ):
+                if ( n is not None and n>=100 ):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
@@ -178,7 +178,7 @@ def achievements(request, username):
         elif (achiev.Name == 'Total donaciones bronce'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
                 n = usr_stats.Total_gifts
-                if ( n is not None and n>=50 ):
+                if ( n is not None and n>=100 ):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
@@ -192,7 +192,7 @@ def achievements(request, username):
         elif (achiev.Name == 'Total donaciones plata'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
                 n = usr_stats.Total_gifts
-                if ( n is not None and n>=100 ):
+                if ( n is not None and n>=500 ):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
@@ -206,7 +206,7 @@ def achievements(request, username):
         elif (achiev.Name == 'Total donaciones oro'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
                 n = usr_stats.Total_gifts
-                if ( n is not None and n>=500 ):
+                if ( n is not None and n>=1500 ):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
@@ -220,7 +220,7 @@ def achievements(request, username):
         elif (achiev.Name == 'Total donaciones platino'):
             if not User_Achievements.objects.filter(Owner=usr.id,Achievement=achiev.Name).exists():
                 n = usr_stats.Total_gifts
-                if ( n is not None and n>=1000 ):
+                if ( n is not None and n>=3000 ):
                     new = User_Achievements(Owner=usr,Achievement=achiev)
                     new.save()
                     user_ach = User_Achievements.objects.get(Owner=usr.id,Achievement=achiev.Name)
