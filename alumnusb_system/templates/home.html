@@ -8,10 +8,10 @@
   <div class="container masthead-content d-flex align-items-center flex-column">
 
     <!-- Masthead Avatar Image -->
-    <img class="masthead-avatar mb-5" src="../static/img/alumnusb_logo.jpg" alt="">
+    <img class="masthead-avatar mb-5" src="{% static 'img/alumnusb_logo.jpg' %}" alt="">
 
     <!-- Masthead Heading -->
-    <h1 class="masthead-heading text-uppercase mb-0">La USB agradece tu colaboración</h1>
+    <h1 class="text-uppercase mb-0">La USB agradece tu colaboración</h1>
 
     <!-- Icon Divider -->
     <div class="divider-custom divider-light">
@@ -23,7 +23,7 @@
     </div>
 
     <!-- Masthead Subheading -->
-    <h4 class="masthead-subheading font-weight-light mb-0">Queremos reconocer lo mucho que haces por nosotros.</h4>
+    <h4 class="masthead-subheading font-weight-light mb-0">Queremos reconocer lo mucho que haces por nosotros. ¡Entra para descubrir cómo!</h4>
 
   </div>
 </header>
@@ -48,14 +48,14 @@
     <div class="row display-flex">
 
       <!-- Achievement Item 1 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+      <div class="col-md-6 col-lg-4 mb-sm-2">
+        <div class="portfolio-item mx-auto card border-0 h-100" data-toggle="modal" data-target="#portfolioModal1">
+          <div class="portfolio-item-caption bg-warning d-flex align-items-center justify-content-center h-100 w-100">
             <div class="portfolio-item-caption-content text-center text-white">
               <i class="fas fa-plus fa-3x"></i>
             </div>
           </div>
-          <div class = "bg-primary  rounded p-2 text-light" style="height: 20rem;" >
+          <div class = "bg-primary  rounded p-2 text-light card-body h-100">
             <img class="img-fluid rounded" src="{% static 'img/usbbus.jpg' %}" alt="">
             <h4>Recuperación del transporte</h4>
           </div>
@@ -63,14 +63,14 @@
       </div>
 
       <!-- Achievement Item 2 -->
-      <div class="col-md-6 col-lg-4 col">
-        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
-          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+      <div class="col-md-6 col-lg-4 mb-sm-2">
+        <div class="portfolio-item mx-auto card border-0 h-100" data-toggle="modal" data-target="#portfolioModal2">
+          <div class="portfolio-item-caption bg-warning d-flex align-items-center justify-content-center h-100 w-100">
             <div class="portfolio-item-caption-content text-center text-white">
               <i class="fas fa-plus fa-3x"></i>
             </div>
           </div>
-          <div class = "bg-primary  rounded p-2 text-light" style="height: 20rem;">
+          <div class = "bg-primary  rounded p-2 text-light card-body h-100">
             <img class="img-fluid rounded" src="{% static 'img/labor_docente.jpg' %}" alt="">
             <h4>Premio a la destacada labor docente</h4>
           </div>
@@ -78,14 +78,14 @@
       </div>
 
       <!-- Achievement Item 3 -->
-      <div class="col-md-6 col-lg-4 col">
-        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+      <div class="col-md-6 col-lg-4 mb-sm-2">
+        <div class="portfolio-item mx-auto card border-0 h-100" data-toggle="modal" data-target="#portfolioModal3">
+          <div class="portfolio-item-caption bg-warning d-flex align-items-center justify-content-center h-100 w-100">
             <div class="portfolio-item-caption-content text-center text-white">
               <i class="fas fa-plus fa-3x"></i>
             </div>
           </div>
-          <div class = "bg-primary  rounded p-2 text-light" style="height: 20rem;">
+          <div class = "bg-primary  rounded p-2 text-light card-body h-100">
             <img class="img-fluid rounded" src="{% static 'img/scholar.jpg' %}" alt="">
             <h4>Programa de becas</h4>
           </div>
@@ -124,104 +124,9 @@
         <p class="lead">Se busca dar más significado personal para cada proceso dentro de los proyectos de AlumnUSB en la Universidad. Es por ello que nuestra interfaz cuenta con un sistema de medallas que se irán desbloqueando al cumplir ciertos requisitos para cada donante recurrente.</p>
       </div>
     </div>
-
-    <!-- About Section Button -->
-    <!--<div class="text-center mt-4">
-      <a class="btn btn-xl btn-outline-light">
-        <i class="fas fa-download mr-2"></i>
-        Free Download!
-      </a>
-    </div>-->
   </div>
 </section>
 
-<!--
-<section class="page-section" id="contact">
-  <div class="container">
-    
-    <-- Contact Section Heading 
-    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Usuario</h2>
-
-    <-- Icon Divider
-    <div class="divider-custom">
-      <div class="divider-custom-line"></div>
-      <div class="divider-custom-icon">
-        <i class="fas fa-star"></i>
-      </div>
-      <div class="divider-custom-line"></div>
-    </div>
-
-    <-- Contact Section Form
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-
-        <form name="sentMessage" id="registerUser" novalidate="novalidate" method="POST">
-          {% csrf_token %}
-          {{ form.non_field_errors }}
-
-          <div class="fieldWrapper">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              {{ form.username.errors }}
-              {{ form.username.label_tag }}
-              {{ form.username }}
-              {% if form.username.help_text %}
-                <p class="help-block text-danger">{{ form.username.help_text|safe }}</p>
-              {% endif %}
-            </div>
-          </div>
-
-
-          <div class="fieldWrapper">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              {{ form.email.errors }}
-              {{ form.email.label_tag }}
-              {{ form.email }}
-              {% if form.email.help_text %}
-                <p class="help-block text-danger">{{ form.email.help_text|safe }}</p>
-              {% endif %}
-            </div>
-          </div>
-
-
-          <div class="fieldWrapper">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              {{ form.password1.errors }}
-              {{ form.password1.label_tag }}
-              {{ form.password1 }}
-              {% if form.password1.help_text %}
-                <p class="help-block text-danger">{{ form.password1.help_text|safe }}</p>
-              {% endif %}
-            </div>
-          </div>
-
-
-          <div class="fieldWrapper">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              {{ form.password2.errors }}
-              {{ form.password2.label_tag }}
-              {{ form.password2 }}
-              {% if form.password2.help_text %}
-                <p class="help-block text-danger">{{ form.password2.help_text|safe }}</p>
-              {% endif %}
-            </div>
-          </div>
-
-
-          <br>
-          <div id="success"></div>
-          <div class="form-group text-center">
-            <button type="submit" class="btn btn-outline-al btn-xl" id="sendMessageButton">Send</button>
-          </div>
-        </form>
-       
-
-
-      </div>
-    </div>
-
-  </div>
-</section>
--->
 <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
 <div class="scroll-to-top d-lg-none position-fixed ">
   <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
@@ -245,7 +150,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-8">
               <!-- Portfolio Modal - Title -->
-              <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0"> Transporte recuperado </h2>
+              <h2 class="text-secondary text-uppercase mb-0"> Transporte recuperado </h2>
               <!-- Icon Divider -->
               <div class="divider-custom">
                 <div class="divider-custom-line"></div>
@@ -257,10 +162,12 @@
               <!-- Portfolio Modal - Image -->
               <img class="img-fluid rounded mb-5" src="{%static 'img/usbbus.jpg' %}" alt="">
               <!-- Portfolio Modal - Text -->
-              <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-              <button class="btn btn-primary" href="#" data-dismiss="modal">
-                <i class="fas fa-times fa-fw"></i>
-                Close Window
+              <p class="mb-5">
+                Gracias a tu apoyo, ha sido posible habilitar muchas rutas del transporte, permitiendo que 
+                muchos miembros de la comunidad universitaria puedan seguir haciendo vida en nuestra casa de estudios.
+              </p>
+              <button class="btn btn-warning text-light" href="#" data-dismiss="modal">
+                Aceptar
               </button>
             </div>
           </div>
@@ -284,7 +191,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-8">
               <!-- Portfolio Modal - Title -->
-              <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
+              <h2 class="text-secondary text-uppercase mb-0">Premio a la destacada labor docente</h2>
               <!-- Icon Divider -->
               <div class="divider-custom">
                 <div class="divider-custom-line"></div>
@@ -294,12 +201,15 @@
                 <div class="divider-custom-line"></div>
               </div>
               <!-- Portfolio Modal - Image -->
-              <img class="img-fluid rounded mb-5" src="img/portfolio/cake.png" alt="">
+              <img class="img-fluid rounded mb-5" src="{% static 'img/labor_docente.jpg' %}" alt="">
               <!-- Portfolio Modal - Text -->
-              <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-              <button class="btn btn-primary" href="#" data-dismiss="modal">
-                <i class="fas fa-times fa-fw"></i>
-                Close Window
+              <p class="mb-5">
+                Gracias a tu colaboración, ha sido posible mantener la figura del premio a la destacada labor docente,
+                de esta forma retribuímos a los profesores que han ayudado a construir nuestra universidad y formar tantos
+                profesionales. 
+              </p>
+              <button class="btn btn-warning text-light" href="#" data-dismiss="modal">
+                Aceptar
               </button>
             </div>
           </div>
@@ -323,7 +233,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-8">
               <!-- Portfolio Modal - Title -->
-              <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
+              <h2 class="text-secondary text-uppercase mb-0">Programa de becas</h2>
               <!-- Icon Divider -->
               <div class="divider-custom">
                 <div class="divider-custom-line"></div>
@@ -333,12 +243,14 @@
                 <div class="divider-custom-line"></div>
               </div>
               <!-- Portfolio Modal - Image -->
-              <img class="img-fluid rounded mb-5" src="img/portfolio/circus.png" alt="">
+              <img class="img-fluid rounded mb-5" src="{% static 'img/scholar.jpg' %}" alt="">
               <!-- Portfolio Modal - Text -->
-              <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-              <button class="btn btn-primary" href="#" data-dismiss="modal">
-                <i class="fas fa-times fa-fw"></i>
-                Close Window
+              <p class="mb-5">
+                Gracias a tus aportes, hemos sido capaces de mantener el programa de becas y permitir que mucha
+                gente talentosa pueda desarrollarse y seguir estudiando. ¡Muchas gracias!
+              </p>
+              <button class="btn btn-warning text-light" href="#" data-dismiss="modal">
+                Aceptar
               </button>
             </div>
           </div>
