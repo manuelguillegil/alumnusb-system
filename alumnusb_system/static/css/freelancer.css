@@ -32,6 +32,7 @@
   --danger: #dc3545;
   --light: #f8f9fa;
   --dark: #343a40;
+  --black: #111111;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -2478,6 +2479,42 @@ fieldset:disabled a.btn {
 .btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus,
 .show > .btn-danger.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
+}
+
+.btn-masthead {
+  color: var(--light);
+  border-color: var(--light);
+  text-decoration: none;
+  border-radius: 0;
+  border-width: 1px;
+
+}
+
+.btn-masthead:hover {
+  color: #212529;
+  background-color: var(--light);
+}
+
+.btn-masthead:focus, .btn-masthead.focus {
+  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+}
+
+.btn-masthead.disabled, .btn-masthead:disabled {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.btn-masthead:not(:disabled):not(.disabled):active, .btn-masthead:not(:disabled):not(.disabled).active,
+.show > .btn-masthead.dropdown-toggle {
+  color: #212529;
+  background-color: #dae0e5;
+  border-color: #d3d9df;
+}
+
+.btn-masthead:not(:disabled):not(.disabled):active:focus, .btn-masthead:not(:disabled):not(.disabled).active:focus,
+.show > .btn-masthead.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
 }
 
 .btn-light {

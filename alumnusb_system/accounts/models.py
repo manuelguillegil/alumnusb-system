@@ -58,7 +58,7 @@ class Achievements(models.Model):
 	Name = models.CharField(primary_key=True, max_length=50)
 	Description = models.CharField(max_length=200)
 	Picture = models.ImageField(default='static/achiev_img/C.png', upload_to='static/achiev_img/') 
-	Level = models.IntegerField(default=1);
+	Level = models.IntegerField(default=1)
 	
 
 class User_Achievements(models.Model):

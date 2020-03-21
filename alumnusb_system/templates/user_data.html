@@ -8,7 +8,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {% endblock stylesheet %}
 
-<!------ Include the above in your HEAD tag ---------->
+{% with prof_pic_mid="prof-pic-mod" %}
+
 {% block content %}
 <div style="height: 5rem"></div>
 <div class="container emp-profile horizontal-align shadow-lg">
@@ -17,13 +18,12 @@
                     <div class="col-md-4">
                         <div class="profile-img">
                             {% if pic.1 %}
-                                <img src="{{pic.0}}">
+                                <img src="{{pic.0}}" class="img-fluid">
                             {% else %}
-                                <img src=" {% static 'img/default-user.png'  %} " alt=""/>
+                                <img src=" {% static 'img/default-user.png'  %} " alt="" class="img-fluid"/>
                             {% endif %}
-                            <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
+                            <div class="file btn btn-lg btn-primary h-100" data-target="#{{prof_pic_mid}}" data-toggle="modal">
+                                Cambiar imagen
                             </div>
                         </div>
                     </div>
@@ -191,3 +191,5 @@
             </form>           
         </div>
         {% endblock content %}
+        {% include 'prof_pic_form_modal.html' with mid=prof_pic_mid %}
+{% endwith %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 from django.contrib.auth import login as auth_login
 from django.shortcuts import render, redirect, get_object_or_404
@@ -61,6 +61,24 @@ def dashboard(request, username):
             }
 
     return render(request, 'dashboard/index.html', args)
+
+########################################################################
+# View para el chart de la pagina de resumen del dashboard
+def resume_chart(request):
+    
+    usr = get_object_or_404(User, username=request.user)
+
+    #Try to get the user stats:
+    usr_stats = get_object_or_404(User_stats, Email=usr.email)
+
+    labels = ['Mejor donación', 'Donación promedio', 'Mejor donación en un año', 'Última donación']
+    data = [usr_stats.Largest_gift, usr_stats.Average_gift, usr_stats.Best_gift_year_total, usr_stats.Last_gift_date]
+
+
+    return JsonResponse(data = { 'labels': labels, 'data': data})
+
+
+########################################################################
 
 @login_required
 def user_stats(request, username):

@@ -265,10 +265,9 @@
                 <!-- Card Body -->
                 <div class="card-body row">
                   
-                  
                     <!--An image, maybe the owl-->
                     <div class="col-xl-6 col-lg-6 m-auto text-warning text-center">
-                        <i class="fas fa-rocket fa-10x"></i>
+                      <img src="{% static 'img/mascota/mascota-abierto.png' %}" alt="" class="img-fluid">
                     </div>
 
                     <!--Msg Field-->
@@ -342,7 +341,7 @@
                 <div class="card-body">
                   <div class="row content-row">
                     
-                    
+                    <canvas id="resume-chart" data-url="{% url 'resume-chart' %}"></canvas>
 
                   </div>
                   
@@ -419,6 +418,7 @@
   <!-- Page level custom scripts -->
   <script src="{% static 'js/dashboard/demo/chart-area-demo.js' %}"></script>
   <script src="{% static 'js/dashboard/demo/chart-pie-demo.js' %}"></script>
+  <script src="{% static 'js/dashboard/demo/chart-bar-demo.js' %}"></script>
 
   <!--Temporal script, it hides a lot of things-->
   {% block cscripts %} 
