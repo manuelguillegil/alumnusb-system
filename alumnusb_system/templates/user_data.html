@@ -4,16 +4,12 @@
 {% block stylesheet %}
 <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
 <link rel="stylesheet" href=" {% static 'css/user_data.css' %} ">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-{% endblock stylesheet %}
 
-{% with prof_pic_mid="prof-pic-mod" %}
+{% endblock stylesheet %}
 
 {% block content %}
 <div style="height: 5rem"></div>
 <div class="container emp-profile horizontal-align shadow-lg">
-            <form method="post">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
@@ -22,12 +18,13 @@
                             {% else %}
                                 <img src=" {% static 'img/default-user.png'  %} " alt="" class="img-fluid"/>
                             {% endif %}
-                            <div class="file btn btn-lg btn-primary h-100" data-target="#{{prof_pic_mid}}" data-toggle="modal">
-                                Cambiar imagen
+                            <div class="file btn btn-lg btn-primary h-100 mb-5" data-target="#prof-pic-form" data-toggle="modal">
+                                Cambiar imagen.
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
+                        {{prof_pic_mid}}
                         <div class="profile-head">
                                     <h5>
                                         {{ User_information.First_name}}  
@@ -137,59 +134,12 @@
                                             </div>
                                         </div>
                             </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Experience</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Hourly Rate</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>10$/hr</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Total Projects</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>230</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>English Level</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Availability</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>6 months</p>
-                                            </div>
-                                        </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label>Your Bio</label><br/>
-                                        <p>Your detail description</p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </form>           
+                {% include 'prof_pic_form_modal.html' with mid="prof-pic-form" imgs=prof_pics%}
+                
+
+
         </div>
         {% endblock content %}
-        {% include 'prof_pic_form_modal.html' with mid=prof_pic_mid %}
-{% endwith %}

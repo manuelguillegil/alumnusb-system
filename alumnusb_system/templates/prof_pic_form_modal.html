@@ -1,12 +1,13 @@
-{% load 'static' %}
+{% load static %}
 <!--
     Variables required by this template:
         mid: modal id
+        imgs: available profile pics
 -->
-<div class="modal fade" id="{{mid}}" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
+<div class="portfolio-modal modal fade" id="{{mid}}" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">
             <i class="fas fa-times"></i>
           </span>
@@ -16,7 +17,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <!-- Portfolio Modal - Title -->
-                <h2 class="text-secondary text-uppercase mb-0">Premio a la destacada labor docente</h2>
+                <h2 class="text-secondary text-uppercase mb-0">Escoge una</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
@@ -25,17 +26,23 @@
                   </div>
                   <div class="divider-custom-line"></div>
                 </div>
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="{% static 'img/labor_docente.jpg' %}" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">
-                  Gracias a tu colaboración, ha sido posible mantener la figura del premio a la destacada labor docente,
-                  de esta forma retribuímos a los profesores que han ayudado a construir nuestra universidad y formar tantos
-                  profesionales. 
-                </p>
+                
+
+                <div class="row">
+                    {% for img in imgs %}
+                    <div class="col-lg-3 col-xl-3 col-sm-6 mb-2">
+                        <div class="btn-light btn">
+                            <img class="img-fluid rounded" src="{{img.1}}" alt="">
+                        </div>
+                    </div>
+                    {% empty %}
+                    <small>(No hay imágenes para seleccionar)</small>
+                    {% endfor %}
+                </div>
                 <button class="btn btn-warning text-light" href="#" data-dismiss="modal">
-                  Aceptar
+                    Aceptar
                 </button>
+                <!-- Portfolio Modal - Text -->
               </div>
             </div>
           </div>

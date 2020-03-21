@@ -66,7 +66,7 @@ def user_data(request, username):
     ret_all_pics = []
     all_pictures = Profile_Picture.objects.all()
     for p in all_pictures:
-        ret_all_pics.append( p , "/"+ pic.Picture.url )
+        ret_all_pics.append(( p , "/"+ p.Picture.url ))
 
 
     if ( user_info.Picture != None ):
