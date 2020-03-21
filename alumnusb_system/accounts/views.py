@@ -63,13 +63,25 @@ def user_data(request, username):
     usr = get_object_or_404(User, username=username)
     user_info = get_object_or_404(User_information,  Email=usr.email)
 
+    ret_all_pics = []
+    all_pictures = Profile_Picture.objects.all()
+    for p in all_pictures:
+        ret_all_pics.append( p , "/"+ pic.Picture.url )
+
+
     if ( user_info.Picture != None ):
         pic = Profile_Picture.objects.get(id=user_info.Picture.id)
         ret_pic = ( "/"+ pic.Picture.url , True )
     else:
         ret_pic = ( "" , False )
 
-    return render(request, 'user_data.html', {'User_information': user_info, 'pic': ret_pic})
+    args = {
+            'User_information': user_info, 
+            'pic': ret_pic,
+            'prof_pics':ret_all_pics
+            }
+
+    return render(request, 'user_data.html', args)
 
 @login_required
 def edit_user_picture(request, username):
