@@ -26,12 +26,17 @@
     <h4 class="masthead-subheading font-weight-light mb-0">Queremos reconocer lo mucho que haces por nosotros. ¡Entra para descubrir cómo!</h4>
     <div>
       {% if user.is_authenticated %}
-
+        <a href="{% url 'dashboard' user.username %}" class="btn-masthead  btn p-2 m-2 ">
+          <h4 class="font-weight-light"> Ver mis reconocimientos </h4> 
+        </a> 
       {% else %}
-        <a href="" class="float-left btn-light"> ingresar </a> 
-        <a href="" class="float-right btn-light"> Crear una cuenta </a> 
+        <a href="{% url 'register_url' %}" class="btn-masthead  btn p-2 m-2 ">
+          <h4 class="font-weight-light"> ingresar </h4> 
+        </a> 
+        <a href="{% url 'login_url' %}" class="btn-masthead  btn p-2 m-2 ">
+          <h4 class="font-weight-light"> Crear una cuenta </h4> 
+        </a> 
       {% endif %}
-      <a href="{% url '' %}">  </a>
     </div>
 
   </div>
