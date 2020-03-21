@@ -24,6 +24,15 @@
 
     <!-- Masthead Subheading -->
     <h4 class="masthead-subheading font-weight-light mb-0">Queremos reconocer lo mucho que haces por nosotros. ¡Entra para descubrir cómo!</h4>
+    <div>
+      {% if user.is_authenticated %}
+
+      {% else %}
+        <a href="" class="float-left btn-light"> ingresar </a> 
+        <a href="" class="float-right btn-light"> Crear una cuenta </a> 
+      {% endif %}
+      <a href="{% url '' %}">  </a>
+    </div>
 
   </div>
 </header>
