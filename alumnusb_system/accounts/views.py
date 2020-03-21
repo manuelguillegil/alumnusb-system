@@ -75,10 +75,13 @@ def user_data(request, username):
     else:
         ret_pic = ( "" , False )
 
+    form = pictureId();
+
     args = {
             'User_information': user_info, 
             'pic': ret_pic,
-            'prof_pics':ret_all_pics
+            'prof_pics':ret_all_pics,
+            'form': form
             }
 
     return render(request, 'user_data.html', args)
