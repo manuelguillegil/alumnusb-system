@@ -52,12 +52,19 @@ def dashboard(request, username):
     else:
         msg = None
 
+    if ( user_info.Picture != None ):
+        pic = Profile_Picture.objects.get(id=user_info.Picture.id)
+        ret_pic = ( "/"+ pic.Picture.url , True, pic.id )
+    else:
+        ret_pic = ( "" , False , -1)
+
     args = {
                 'User_information': user_info,
                 'stat': usr_stats,
                 'ach_by_date':ach_by_date,
                 'ach_by_lvl':ach_by_lvl,
-                'msg':msg
+                'msg':msg,
+                'pic': ret_pic
             }
 
     return render(request, 'dashboard/index.html', args)
