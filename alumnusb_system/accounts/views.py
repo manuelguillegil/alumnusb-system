@@ -71,11 +71,11 @@ def user_data(request, username):
 
     if ( user_info.Picture != None ):
         pic = Profile_Picture.objects.get(id=user_info.Picture.id)
-        ret_pic = ( "/"+ pic.Picture.url , True )
+        ret_pic = ( "/"+ pic.Picture.url , True, pic.id )
     else:
-        ret_pic = ( "" , False )
+        ret_pic = ( "" , False , -1)
 
-    form = pictureId();
+    form = pictureId()
 
     args = {
             'User_information': user_info, 
