@@ -14,9 +14,10 @@
                     <div class="col-md-4">
                         <div class="profile-img">
                             {% if pic.1 %}
-                                <img src="{{pic.0}}" class="img-fluid">
+                                <img src="{{pic.0}}" class="img-fluid" data-imgid="{{pic.2}}" id="profile-pic">
                             {% else %}
-                                <img src=" {% static 'img/default-user.png'  %} " alt="" class="img-fluid"/>
+                                <img src=" {% static 'img/default-user.png'  %} " alt="" class="img-fluid" 
+                                data-imgid="{{pic.2}}" id="profile-pic"/>
                             {% endif %}
                             <div class="file btn btn-lg btn-primary h-100 mb-5" data-target="#prof-pic-form" data-toggle="modal">
                                 Cambiar imagen.
@@ -137,7 +138,7 @@
                         </div>
                     </div>
                 </div>
-                {% include 'prof_pic_form_modal.html' with mid="prof-pic-form" imgs=prof_pics%}
+                {% include 'prof_pic_form_modal.html' with mid="prof-pic-form" imgs=prof_pics currentImg=pic.2 picform=form%}
                 
 
 
