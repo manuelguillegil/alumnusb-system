@@ -3,8 +3,10 @@ var selected = null;
 $(document).ready(function(){
     //Get every button
     var imgBtns = $('.prof-pic-btn');
-    console.log(userImg);
-    console.log(imgBtns);
+    var succMsg = $('#success-alert');
+    var infoMsg = $('#info-alert');
+    var failMsg = $('#fail-alert');
+
     //Check if the user has a seleced img
     if(userImg!=-1){ //userImg defined in the html file
         imgBtns.each(function(){
@@ -23,7 +25,9 @@ $(document).ready(function(){
 
     $('#update-pic-form').submit(function(e){
         e.preventDefault();
+        resetMsgs();
         if(selected==null){
+            infoMsg.removeClass("d-none");
             return;
         }
 
@@ -39,10 +43,12 @@ $(document).ready(function(){
             data:form.serialize(),
 
             success:function(json){
+                succMsg.removeClass("d-none");
                 console.log("Everything ok");
             },
-       
+            
             error:function(xhr, errmsg,err){
+                failMsg.removeClass("d-none");
                 console.log("Something went wrong");
             }
         });
@@ -61,4 +67,9 @@ $(document).ready(function(){
         selected = newItem;
     }
 
+    function resetMsgs(){
+        succMsg.addClass("d-none");
+        failMsg.addClass("d-none");
+        infoMsg.addClass("d-none");
+    }
 });
