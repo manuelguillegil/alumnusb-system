@@ -99,10 +99,17 @@ def user_stats(request, username):
 
     #Try to get the user stats:
     usr_stats = get_object_or_404(User_stats, Email=usr.email)
+    if ( user_info.Picture != None ):
+        pic = Profile_Picture.objects.get(id=user_info.Picture.id)
+        ret_pic = ( "/"+ pic.Picture.url , True, pic.id )
+    else:
+        ret_pic = ( "" , False , -1)
+
 
     args = {
                 'User_information': user_info,
-                'stat': usr_stats
+                'stat': usr_stats,
+                'pic': ret_pic
             }
 
     return render(request, 'dashboard/user_stats.html', args)
@@ -390,10 +397,18 @@ def achievements(request, username):
 
     ret2.sort(key=lambda x:x[0].Level, reverse=True)
 
+    if ( usr_info.Picture != None ):
+        pic = Profile_Picture.objects.get(id=usr_info.Picture.id)
+        ret_pic = ( "/"+ pic.Picture.url , True, pic.id )
+    else:
+        ret_pic = ( "" , False , -1)
+
+
     args = {
                 'achievs':ret2,
                 'user_stats':usr_stats, 
-                'User_information':usr_info
+                'User_information':usr_info,
+                'pic': ret_pic
             }
 
     return render(request, 'dashboard/user_achievements.html', args)
