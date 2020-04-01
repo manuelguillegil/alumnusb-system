@@ -28,7 +28,7 @@ def profile_upload(request):
 		next(io_string)
 		for column in csv.reader(io_string, delimiter=',', quotechar="|"):
 			if ( len(column) < 34 ):
-				error = len(column)
+				error = 'Formato incorrecto de CSV'
 				return render(request, template, {'title':error})
 			
 			User_information.objects.filter(Email=column[9]).delete()
