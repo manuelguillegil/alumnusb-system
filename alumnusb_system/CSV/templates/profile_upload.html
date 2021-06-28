@@ -1,0 +1,39 @@
+{% extends 'base_card.html' %}
+
+{% block title %}Cargar CSV{% endblock %}
+
+{% block first_col %}
+  {% if messages %}
+    {% for message in messages %}
+        <div>
+            <strong>{{message|safe}}</strong>
+        </div>
+    {% endfor %}
+  {% else %}
+    <div class="mt-0 mr-5 ml-5">
+      <div class="text-center">
+        <h2 class="text-uppercase text-secondary mt-5 mb-0"> {{ title }} </h2>
+      </div>
+
+      <div class="text-uppercase text-black mb-5 mt-3">
+        {{ info }}
+      </div>
+    </div>
+  {% endif %}
+{% endblock first_col %}
+
+{% block form_title %} Cargar archivo {% endblock %}
+{% block second_col %}
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="p-5" align="center">
+      <input type="file" id="file1" name="file" style="padding-top: 20px;">
+      <div class="text-center text-danger" style="padding-top: 10px;">
+        <small>Solo se aceptan archivos CSV</small>
+      </div>
+      <div class="form-group text-center" style="padding-top: 30px;">
+        <button class="btn btn-outline-al btn-xl" type="submit">Cargar</button>
+      </div>
+    </div>
+  </form>
+{% endblock second_col %}

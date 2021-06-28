@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pruebas</title>
+</head>
+<body>
+	<h1>hola</h1>
+	{% for p in achievs %}
+		<!--
+			p[0]: achiev object
+			p[1]: date (maybe null)
+			p[2]: achievement achieved
+			p[4]: img url
+		-->
+		<h1>{{p.0.Name}}</h1>
+		<h4>{{p.0.Description}}</h4>
+		<h5>{{p.0.Picture.url}}</h5>
+		<img src="{{ p.3 }}">
+
+		{% if p.2 %}
+			{{ p.1 }}
+			<h1>got it</h1>
+		{% endif %}
+		
+	{% endfor %}
+</body>
+</html>

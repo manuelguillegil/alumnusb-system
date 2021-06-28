@@ -1,0 +1,86 @@
+{% load static %}
+{% load widget_tweaks %}
+<!--
+    Variables required by this template:
+        mid: modal id
+        imgs: available profile pics
+        currentImg: current selected img
+        picform: form to send
+-->
+<div class="portfolio-modal modal fade" id="{{mid}}" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+
+        <div class="modal-body text-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title -->
+                <h2 class="text-secondary text-uppercase mb-0">Escoge una</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                
+
+                <div class="row my-2">
+                    {% for img in imgs %}
+                    <div class="col-lg-3 col-xl-3 col-sm-6 mb-2">
+                        <div class="btn-light btn prof-pic-btn" data-imgid="{{img.0.id}}" id="imgbtn{{img.0.id}}">
+                            <img class="img-fluid rounded" src="{{img.1}}" alt="" id="img{{img.0.id}}"data-imgid="{{img.0.id}}">
+                        </div>
+                    </div>
+                    {% empty %}
+                    <small>(No hay imágenes para seleccionar)</small>
+                    {% endfor %}
+                </div>
+                <form id="update-pic-form" action="POST" novalidate data-url="{% url 'edit_user_picture' user.username %}">
+                    {% csrf_token %}
+                    {{form.Pic_id|attr:"hidden:true"|attr:"id:selected-img"}}
+                    <button class="btn btn-warning text-light" id="update-pic-btn" type="submit">
+                        Aceptar
+                    </button>
+                </form>
+                <div class="alert alert-success my-2 fade in alert-dismissible show d-none" id="success-alert">
+                    <div>
+                        Su imagen se ha actualizado exitosamente
+                    </div>
+                </div>
+                <div class="alert alert-info my-2 fade in alert-dismissible show d-none" id="info-alert">
+                    <div>
+                        Debe escoger una imagen
+                    </div>
+                </div>
+                <div class="alert alert-danger my-2 fade in alert-dismissible show d-none" id="fail-alert">
+                    <div>
+                        Su imagen de perfil no pudo ser actualizada
+                    </div>
+                </div>
+                <!-- Portfolio Modal - Text -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Bootstrap core JavaScript -->
+<script src="{%static  'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- Plugin JavaScript -->
+<script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+<!--Custom variables and scripts-->
+<script>
+    var userImg = {{currentImg}};
+</script>
+<script src="{% static 'js/select_prof_pic.js' %}"></script>

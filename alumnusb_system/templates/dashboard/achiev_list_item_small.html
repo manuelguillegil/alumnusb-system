@@ -1,0 +1,73 @@
+{% load static %}
+<!-- Variables required by this template:
+    achiev: Achievement being rendered by this template
+    color: Color theme of this item
+    id: number of this item
+    color per Level :
+    1: primary
+    2: info
+    3: warning
+    4: purple
+    5: danger
+-->
+
+    {% with modalId="achievItemModal"|add:id%}
+<div class="row  my-2 rounded">
+    <div class="col-3">
+        <img src="{{ achiev.3 }}" alt="" class="img-fluid">
+    </div>
+
+    <div class="col-5 p-2" >
+        
+        <!--Title-->
+        <div class="mb-2">
+            <a class="" href="#" data-toggle="modal" data-target="#{{modalId}}"
+               style="text-decoration: none;">
+                <h4 class="text-gray-800 font-weight-bold text-{{color}}">
+                    {{achiev.0.Name}}  
+                    {% if achiev.2 %}
+                        <i class="fas fa-medal"></i>
+                    {% endif %}
+                </h4> 
+
+            </a>
+            <!--Description-->
+            {% if  achiev.0.Description|length == 0 %}
+                <span>(sin descripción)</span>
+            {% elif  achiev.0.Description|length <= 120 %}
+                <span> {{achiev.0.Description}} </span>
+            {% else %}
+                <span> {{achiev.0.Description|truncatechars:120}}... </span>
+            {% endif %}
+        </div>
+
+        <!--Level Badge-->
+        <div class="">
+            {% if achiev.0.Level == 1 %}
+            <span class="badge-primary rounded p-1 my-6"> Level 1  </span>
+            {% elif achiev.0.Level == 2 %}
+            <span class="badge-info rounded p-1 my-6"> Level 2  </span>
+            {% elif achiev.0.Level == 3 %}
+            <span class="badge-warning rounded p-1 my-6"> Level 3  </span>
+            {% elif achiev.0.Level == 4 %}
+            <span class="badge-purple rounded p-1 my-6"> Level 4  </span>
+            {% elif achiev.0.Level == 5 %}
+            <span class="badge-danger rounded p-1 my-6"> Level 5  </span>
+            {% endif %}
+        </div>
+        
+
+    </div>
+
+    <div class="col-4">
+        <!--If achievement earned:-->
+        {% if achiev.2 %}
+        Adquirido: {{achiev.1}}
+        {% endif %}
+    </div>
+    
+</div>
+<hr>
+        
+        {% include 'dashboard/achiev_item_modal.html' with id=modalId mAchiev=achiev%}
+    {% endwith %}

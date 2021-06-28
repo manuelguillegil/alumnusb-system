@@ -1,0 +1,97 @@
+{% extends 'base_card.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %} Registro de usuario {% endblock %}
+
+{% block first_col %} 
+  <figure class="p-3">
+    <img class="img-fluid rounded p-0 justify-content-between" src="{% static 'img/trees-usb.jpg' %}" alt="">
+  </figure>
+  <a href="{% url 'login_url' %}">
+  <h3 class="text-uppercase text-center text-secondary mt-5 mb-0"> ¿Ya tienes una cuenta? </h3>
+  </a>
+{% endblock first_col %}
+
+{% block form_title %} <div class="mr-3">Crear nueva cuenta</div>  {% endblock %}
+
+{% block decorator %}
+  <div class="divider-custom">
+    <div class="divider-custom-line"></div>
+    <div class="divider-custom-icon">
+      <i class="fas fa-star"></i>
+    </div>
+    <div class="divider-custom-line"></div>
+  </div>
+{% endblock decorator %}
+
+{% block second_col %}
+<div class="row">
+  <div class="col-lg-8 mx-auto ">
+
+    <form name="sentMessage" id="loginUser" novalidate="novalidate" method="POST">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <div class="fieldWrapper">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+          {{ form.username.label_tag }}
+          {{ form.username|attr:"class:form-control rounded"|attr:"placeholder:Usuario"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
+          {% if form.username.help_text %}
+            <p class="help-block text-black">{{ form.username.help_text|safe }}</p>
+          {% endif %}
+
+          <p class="help-block text-danger">{{ form.username.errors }}</p>
+        </div>
+      </div>
+
+
+      <div class="fieldWrapper">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+          {{ form.email.label_tag }}
+          {{ form.email|attr:"class:form-control rounded"|attr:"placeholder:Correo electrónico"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
+          {% if form.email.help_text %}
+            <p class="help-block text-black">{{ form.email.help_text|safe }}</p>
+          {% endif %}
+
+          <p class="help-block text-danger">{{ form.email.errors }}</p>
+        </div>
+      </div>
+
+
+      <div class="fieldWrapper">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+          {{ form.password1.label_tag }}
+          {{ form.password1|attr:"class:form-control rounded"|attr:"placeholder:Contraseña"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
+          {% if form.password1.help_text %}
+            <p class="help-block text-black">{{ form.password1.help_text|safe }}</p>
+          {% endif %}
+
+          <p class="help-block text-danger">{{ form.password1.errors }}</p>
+        </div>
+      </div>
+
+
+      <div class="fieldWrapper">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+          {{ form.password2.label_tag }}
+          {{ form.password2|attr:"class:form-control rounded"|attr:"placeholder:Contraseña"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
+          {% if form.password2.help_text %}
+          <ul>
+            <li class="help-block text-black">{{ form.password2.help_text|safe }}</li>
+          </ul>
+          {% endif %}
+
+          <p class="help-block text-danger">{{ form.password2.errors }}</p>
+        </div>
+      </div>
+
+      <div id="success"></div>
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-outline-al btn-xl mt-3" id="sendMessageButton">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock second_col %}

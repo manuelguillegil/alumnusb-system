@@ -1,0 +1,50 @@
+{% extends 'user_data.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %} Edit User Data {% endblock %}
+
+{% block content %}
+<div class="masthead">
+  <div class="container bg-white d-flex flex-column rounded shadow-lg">
+    <h1 class="masthead-heading text-uppercase text-center text-secondary mb-0 mt-5">Editar información de usuario</h1>
+    
+    <!-- Icon Divider -->
+    <div class="divider-custom">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon">
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="divider-custom-line"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <form method="POST">
+
+          {% csrf_token %}
+          {% for field in form %}
+            <div class="fieldWrapper">
+              <div class="form-group floating-label-form-group-edit controls mb-0 pb-2">
+                {{ field.label_tag }} 
+                
+                {{ field }}
+                
+                {% if field.help_text %}
+                  <p class="help-block">{{ field.help_text|safe }}</p>
+                {% endif %}
+                <strong class="help-block text-danger">{{ field.errors }}</strong>
+              </div>
+            </div>
+          {% endfor %}
+
+          <div class="form-group text-center mt-3 mb-3">
+            <button type="submit" class="btn btn-outline-al btn-xl">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content%}

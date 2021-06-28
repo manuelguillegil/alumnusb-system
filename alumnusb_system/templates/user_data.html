@@ -1,0 +1,146 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block stylesheet %}
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href=" {% static 'css/user_data.css' %} ">
+
+{% endblock stylesheet %}
+
+{% block content %}
+<div style="height: 5rem"></div>
+<div class="container emp-profile horizontal-align shadow-lg">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            {% if pic.1 %}
+                                <img src="{{pic.0}}" class="img-fluid" data-imgid="{{pic.2}}" id="profile-pic">
+                            {% else %}
+                                <img src=" {% static 'img/default-user.png'  %} " alt="" class="img-fluid" 
+                                data-imgid="{{pic.2}}" id="profile-pic"/>
+                            {% endif %}
+                            <div class="file btn btn-lg btn-primary h-100 mb-5" data-target="#prof-pic-form" data-toggle="modal">
+                                Cambiar imagen.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        {{prof_pic_mid}}
+                        <div class="profile-head">
+                                    <h5>
+                                        {{ User_information.First_name}}  
+                                        {{ User_information.Middle_name }}
+                                        {{ User_information.Last_name}} 
+                                        
+                                    </h5>
+                                    <h6>
+                                        {{ User_information.get_Undergrad_degree_display }}
+                                    </h6>
+                                    {% if User_information.Donor == 1 %}
+                                    <p class="proile-rating">Donor &#127775; </p>
+                                    {% endif %}
+                                    {% if User_information.USB_alumn == 1%}
+                                    <p> USB Alumn &#127775; </p>
+                                    {% endif%}
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{% url 'edit_user_data' user.username %}" class="btn-primary rounded" id="edit-profile"> <strong>Edit Profile</strong> </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <strong>SOCIAL MEDIA:</strong>
+                            <ul>
+                                <li>Twitter: {{User_information.Twitter_account}} </li>
+                                <li>Instagram: {{User_information.Instagram_account}} </li>
+                            </ul>
+                            
+                            <strong>CONTACT INFO:</strong>
+                            <ul>
+                                <li>Mailing city: {{ User_information.Mailing_city}}</li>
+                                <li>Mailing state: {{ User_information.Mailing_state}}</li>
+                                <li>Mailing country: {{ User_information.get_Mailing_country_display }}</li>
+                                <li>Mobile number: {{ User_information.Mobile }}</li>
+                                <li>Email: {{User_information.Email}} </li>
+                                <li>Work Email: {{User_information.Work_email}} </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><strong> Birth date: </strong></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p> {{User_information.Birthdate}} </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><strong> Cohorte: </strong></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{User_information.Cohorte}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><strong> Carnet: </strong></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{User_information.Carnet}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label> <strong>Undergraduate Campus: </strong> </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p> {{User_information.get_USB_undergrad_campus_display }} </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><strong> Graduate Degree: </strong></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p> {{User_information.Graduate_degree}} </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label> <strong> Graduate Campus: </strong> </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p> {{User_information.Graduate_campus}} </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label> <strong> Workplace: </strong> </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p> {{User_information.Workplace}} </p>
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% include 'prof_pic_form_modal.html' with mid="prof-pic-form" imgs=prof_pics currentImg=pic.2 picform=form%}
+                
+
+
+        </div>
+        {% endblock content %}

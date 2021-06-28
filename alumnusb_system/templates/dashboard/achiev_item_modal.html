@@ -1,0 +1,106 @@
+{% load static %}
+<!--
+    Variables required by this template:
+        id: forModal id
+        mAchiev: achievement assigned to this modal
+-->
+<div class="modal fade border-0" id="{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!--choose the correct header color-->
+        {% if mAchiev.0.Level == 1 %}
+        <div class="modal-header text-light bg-primary">
+        {% elif mAchiev.0.Level == 2 %}
+        <div class="modal-header text-light bg-info">
+        {% elif mAchiev.0.Level == 3 %}
+        <div class="modal-header text-light bg-warning">
+        {% elif mAchiev.0.Level == 4 %}
+        <div class="modal-header text-light bg-purple">
+        {% elif mAchiev.0.Level == 5 %}
+        <div class="modal-header text-light bg-danger">
+        {% else %}
+        <div class="modal-header">
+        {% endif %}
+
+            <h5 class="modal-title" id="exampleModalLabel">
+              {{mAchiev.0.Name}}                 
+              {% if mAchiev.2 %}
+                <i class="fas fa-medal"></i>
+              {% endif %}
+            </h5>
+
+            <button class="close text-light" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <!--Modal body-->
+        <div class="modal-body">
+
+            <!--Achievement img-->
+            <div class="row">
+                <img src="{{ achiev.3 }}" alt="" class="m-auto img-fluid">
+            </div>
+            <!--Description-->
+            <div class="">
+                <strong>Descripción:</strong><br><br>
+                <div class="border p-2"> <p class="m-auto"> {{mAchiev.0.Description}} </p> </div>
+            </div>
+            <!--Level badge-->
+            <div class="my-3 d-flex flex-row">
+                <div class="">
+                    <strong class="m-1">Nivel:</strong> <br>
+                </div>
+                <div class="mx-1">
+                    <!--choose the correct header color-->
+                    {% if mAchiev.0.Level == 1 %}
+                    <span class="p-2 m-6 rounded badge-primary">Nivel: 1</span>
+                    {% elif mAchiev.0.Level == 2 %}
+                    <span class="p-2 rounded badge-info">Nivel: 2</span>
+                    {% elif mAchiev.0.Level == 3 %}
+                    <span class="p-2 rounded badge-warning">Nivel: 3</span>
+                    {% elif mAchiev.0.Level == 4 %}
+                    <span class="p-2 rounded badge-purple">Nivel: 4</span>
+                    {% elif mAchiev.0.Level == 5 %}
+                    <span class="p-2 rounded badge-danger">Nivel: 5</span>
+                    {% else %}
+                    <span class="p-2 rounded badge-light">Nivel: ???</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!--Earned message-->
+        <div class="my-3 d-flex justify-content-center">
+            {% if mAchiev.2 %}
+                <span class="badge-success p-2 rounded font-weight-bold">
+                    ¡Logro obtenido en: {{mAchiev.1}}!
+                </span>
+            {% else %}
+                <span class="badge-secondary p-2 rounded">Aún no has obtenido este logro. ¿Qué esperas?</span>
+            {% endif %}
+        </div>
+        <!--choose the correct footer color-->
+        {% if mAchiev.0.Level == 1 %}
+        <div class="modal-footer text-light bg-primary">
+            <button class="btn btn-light text-primary " type="button" data-dismiss="modal">Cancelar</button>
+        {% elif mAchiev.0.Level == 2 %}
+        <div class="modal-footer text-light bg-info">
+            <button class="btn btn-light text-info" type="button" data-dismiss="modal">Cancelar</button>
+        {% elif mAchiev.0.Level == 3 %}
+        <div class="modal-footer text-light bg-warning">
+            <button class="btn btn-light text-warning" type="button" data-dismiss="modal">Cancelar</button>
+        {% elif mAchiev.0.Level == 4 %}
+        <div class="modal-footer text-light bg-purple">
+            <button class="btn btn-light text-purple" type="button" data-dismiss="modal">Cancelar</button>
+        {% elif mAchiev.0.Level == 5 %}
+        <div class="modal-footer text-light bg-danger">
+            <button class="btn btn-light text-danger" type="button" data-dismiss="modal">Cancelar</button>
+        {% else %}
+        <div class="modal-footer">
+            <button class="btn btn-light" type="button" data-dismiss="modal">Cancelar</button>
+        {% endif %}
+          
+        </div>
+      </div>
+    </div>
+</div>

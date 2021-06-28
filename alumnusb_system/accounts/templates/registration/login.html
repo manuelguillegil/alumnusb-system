@@ -1,0 +1,61 @@
+{% extends 'base_card.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %} Ingreso de usuario {% endblock %}
+
+{% block first_col %}
+
+  <figure class="p-3">
+    <img class="img-fluid rounded p-0 justify-content-between" src="{% static 'img/jardines.jpg' %}" alt="">
+  </figure>
+  <a href="{% url 'register_url' %}">
+  <h3 class="text-uppercase text-center text-secondary mt-4 mb-0"> ¿Todavía no tienes una cuenta? </h3>
+  </a>
+{% endblock first_col %}
+
+{% block form_title %} <div class="mr-3">Inicia sesión en tu cuenta</div>  {% endblock %}
+
+{% block decorator %}
+  <div class="divider-custom">
+    <div class="divider-custom-line"></div>
+    <div class="divider-custom-icon">
+      <i class="fas fa-star"></i>
+    </div>
+    <div class="divider-custom-line"></div>
+  </div>
+{% endblock decorator %}
+
+{% block second_col %}
+<div class="row">
+  <div class="col-lg-8 mx-auto ">
+
+    <form name="sentMessage" id="loginUser" novalidate="novalidate" method="POST">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <div class="fieldWrapper">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+          {{ form.username.errors }}
+          {{ form.username.label_tag }}
+          {{ form.username|attr:"class:form-control rounded"|attr:"placeholder:Usuario"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
+        </div>
+      </div>
+
+      <div class="fieldWrapper">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+          {{ form.password.errors }}
+          {{ form.password.label_tag }}
+          {{ form.password|attr:"class:form-control rounded"|attr:"placeholder:Contraseña"|attr:"style: background-color: rgba(233, 229, 200, 0.5)" }}
+        </div>
+      </div>
+
+      <div id="success"></div>
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-outline-al btn-xl mt-3 mb-3" id="sendMessageButton">Entrar</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock second_col %}

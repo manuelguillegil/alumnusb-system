@@ -1,0 +1,239 @@
+{% extends 'dashboard/index.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block tab_title %} AlumnUSB - Mis Estadísticas {% endblock %}
+
+{% block page_title %} Mis estadísticas {% endblock %}
+
+
+{% block content %} 
+  <!--Row: info -->
+  <div class="row ml-2 mr-2">
+    <!-- Approach -->
+    <div class="card shadow mb-4 p-2">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-warning">Acerca de esta página</h6>
+        </div>
+        <div class="card-body row">
+            <div class="col-xl-6 col-lg-6 m-auto">
+              <img src="{% static 'img/mascota/mascota-pecho.png' %}" alt="" class="img-fluid">
+            </div>
+
+            <div class="col-xl-6 col-lg-6 font-weight-bold">
+                <p> En esta página podrás consultar tu historial de donaciones, consultando datos como la última donación, cuánto has aportado exactamente y otros datos interesantes.</p>
+                <p class="mb-0"> ¿Qué esperas? Ven y veamos lo que hay. </p>
+            </div>
+        </div>
+      </div>
+  </div>
+  
+  <!-- Row: best gift-->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> 
+                    <a href="" data-toggle="modal" data-target="#bestGiftModal"> Mejor donación: </a>
+                </div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ stat.Largest_gift }}$ </div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-star fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!--Modal-->
+  {% include 'dashboard/modal.html' with modalName="bestGiftModal" modalColor="primary" modalTitle="Mejor donación" modalDescription="Mejor donación que has hecho en toda la historia. ¡Es tu record!" modalIconName="star" %}
+
+  <!-- Row: average gift-->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                      <a href="" class="modal-trigger" data-toggle="modal" data-target="#avrgGiftModal" style="text-decoration:none; color:var(--success)">
+                        Donación promedio
+                      </a>
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ stat.Average_gift }}$ </div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-chart-area fa-2x text-gray-300"></i>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!--modal-->
+  {% include 'dashboard/modal.html' with modalName="avrgGiftModal" modalColor="success" modalTitle="Donación promedio" modalDescription="El promedio de todas tus donaciones ¡Que siga subiendo!" modalIconName="chart-area" %}
+
+  <!-- Row: Best donation year-->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-info text-uppercase mb-1"> 
+                  <a href="" class="modal-trigger" data-toggle="modal" data-target="#bestGiftYrModal" style="text-decoration:none; color:var(--info)">
+                    Año de mejor donación 
+                  </a>
+                </div>
+                <div class="row no-gutters align-items-center">
+                <div class="col-auto">
+                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"> {{stat.Best_gift_year }}   
+                        <small> Total: {{stat.Best_gift_year_total}}$ </small>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-auto">
+                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+  <!--modal-->
+  
+  {% include 'dashboard/modal.html' with modalName="bestGiftYrModal" modalColor="info" modalTitle="Año con la mejor donación" modalDescription="El año en que rompiste tu record, ¡Todo un ícono!" modalIconName="calendar" %}
+
+  <!-- first gift -->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-green shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-green  text-uppercase mb-1">
+                  <a href="" class="modal-trigger" data-toggle="modal" data-target="#fstGiftDate" style="text-decoration:none; color:var(--success)">
+                    Fecha de la primera donación
+                  </a>              
+                </div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{stat.First_gift_date}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-power-off fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!--Model-->
+  {% include 'dashboard/modal.html' with modalName="fstGiftDate" modalColor="success" modalTitle="La primera donación" modalDescription="El momento en que todo empezó. ¡Y falta mucho más!" modalIconName="power-off" %}
+
+  <!-- Last gift year-->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                  <a href="" class="modal-trigger" data-toggle="modal" data-target="#lstGiftDate" style="text-decoration:none; color:var(--warning)">
+                    Última donación
+                  </a>
+                </div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{stat.Last_gift_date}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-angle-double-up fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!--Model-->
+  {% include 'dashboard/modal.html' with modalName="lstGiftDate" modalColor="warning" modalTitle="La última donación (hasta ahora)" modalDescription="La fecha de la última donación realizada. ¡Por ahora!" modalIconName="angle-double-up" %}
+
+  <!-- Smallest gift -->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-yellow shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-yellow text-uppercase mb-1">
+                  <a href="" class="modal-trigger" data-toggle="modal" data-target="#minGift" style="text-decoration:none; color:var(--yellow)">
+                    Menor donación
+                  </a>
+                  
+                </div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                  {{stat.Smallest_gift}} $
+                </div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-seedling fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+<!--Model-->
+{% include 'dashboard/modal.html' with modalName="minGift" modalColor="yellow" modalTitle="La donación más pequeña (hasta ahora)" modalDescription="La donación más pequeña hasta la fecha. ¡Toda ayuda es necesaria!" modalIconName="seedling" %}
+
+  <!-- Total gifts -->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-blue shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-blue text-uppercase mb-1">
+                  <a href="" class="modal-trigger" data-toggle="modal" data-target="#totalGift" style="text-decoration:none; color:var(--blue)">  
+                    Total donado
+                  </a>
+                </div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{stat.Total_gifts}}$</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+<!--Model-->
+{% include 'dashboard/modal.html' with modalName="totalGift" modalColor="blue" modalTitle="Tus donaciones totales en toda la historia" modalDescription="Todo lo que has aportado hasta el momento. ¡Gracias por todo!" modalIconName="dollar-sign" %}
+
+  <!-- Total gifts -->
+  <div class="row ml-2 mr-2">
+    <div class="col mb-4">
+        <div class="card border-left-purple shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-purple text-uppercase mb-1">
+                  <a href="" class="modal-trigger" data-toggle="modal" data-target="#giftCount" style="text-decoration:none; color:var(--purple)">
+                    Cantidad de donaciones totales
+                  </a>
+                </div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{stat.Total_number_of_gifts}}</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-calculator fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+<!--Model-->
+{% include 'dashboard/modal.html' with modalName="giftCount" modalColor="purple" modalTitle="Cantidad de donaciones" modalDescription="La cantidad de donaciones que has hecho hasta ahora. ¡Cada aporte cuenta!" modalIconName="calculator" %}
+
+{% endblock %}
